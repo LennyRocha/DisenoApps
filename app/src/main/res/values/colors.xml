@@ -17,7 +17,7 @@
     <color name="colorOnSurfaceVariant">#A8CA7E</color>
     <color name="colorError">#E80729</color>
     <color name="colorOnError">#000000</color>
-    <color name="backgroundColor">#1E1F22</color>
+    <color name="layoutColor">#1E1F22</color>
 
     <color name="colorPrimaryNight">#3E5900</color>
     <color name="colorPrimaryDarkNight">#4A6100</color>
@@ -33,5 +33,5 @@
     <color name="colorOnSurfaceVariantNight">#88A06C</color>
     <color name="colorErrorNight">#CC0621</color>
     <color name="colorOnErrorNight">#FFFFFF</color>
-    <color name="backgroundColorNight">#1E1F22</color>
+    <color name="layoutColorNight">#141118</color>
 </resources>
