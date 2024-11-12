@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PatrullaAmbiental" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!--<item name="android:fontFamily">roboto</item>-->
+        <item name="colorPrimary">#3E5900</item>
+        <item name="colorPrimaryDark">#4A6100</item>
+        <item name="colorSecondary">#6A8900</item>
+        <item name="colorSurface">#8FA24D</item>
+        <item name="colorAccent">#FFFF66</item>
+        <item name="colorOnPrimary">#E3EFD8</item>
+        <item name="colorOnSecondary">#A5B686</item>
+        <item name="colorOnBackground">#1A3B00</item>
+        <item name="colorOnSurface">#6E8A49</item>
+        <item name="colorPrimaryVariant">#627D23</item>
+        <item name="colorSecondaryVariant">#9AC327</item>
+        <item name="colorOnSurfaceVariant">#88A06C</item>
+        <item name="colorError">#CC0621</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="backgroundColor">#1E1F22</item>
+        <item name="fontFamily">@font/sour_gummy</item>
+    </style>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#588100</color>
+    <color name="colorPrimaryDark">#618434</color>
+    <color name="colorSecondary">#8DB600</color>
+    <color name="colorSurface">#C6DB52</color>
+    <color name="colorAccent">#FFFF8B</color>
+    <color name="colorOnPrimary">#F7FDEF</color>
+    <color name="colorOnSecondary">#CBDDB5</color>
+    <color name="colorOnBackground">#255000</color>
+    <color name="colorOnSurface">#97B670</color>
+    <color name="colorPrimaryVariant">#85A732</color>
+    <color name="colorSecondaryVariant">#AEDD39</color>
+    <color name="colorOnSurfaceVariant">#A8CA7E</color>
+    <color name="colorError">#E80729</color>
+    <color name="colorOnError">#000000</color>
+    <color name="backgroundColor">#1E1F22</color>
+
+    <color name="colorPrimaryNight">#3E5900</color>
+    <color name="colorPrimaryDarkNight">#4A6100</color>
+    <color name="colorSecondaryNight">#6A8900</color>
+    <color name="colorSurfaceNight">#8FA24D</color>
+    <color name="colorAccentNight">#FFFF66</color>
+    <color name="colorOnPrimaryNight">#E3EFD8</color>
+    <color name="colorOnSecondaryNight">#A5B686</color>
+    <color name="colorOnBackgroundNight">#1A3B00</color>
+    <color name="colorOnSurfaceNight">#6E8A49</color>
+    <color name="colorPrimaryVarianNightt">#627D23</color>
+    <color name="colorSecondaryVariantNight">#9AC327</color>
+    <color name="colorOnSurfaceVariantNight">#88A06C</color>
+    <color name="colorErrorNight">#CC0621</color>
+    <color name="colorOnErrorNight">#FFFFFF</color>
+    <color name="backgroundColorNight">#1E1F22</color>
+</resources>
