@@ -11,7 +11,10 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Círculo superior derecho -->
         <View
@@ -67,7 +70,7 @@
             app:srcCompat="@drawable/logo_app_sf" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/edtUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -79,7 +82,7 @@
             android:singleLine="false" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/edtContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -89,7 +92,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnAcceder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"

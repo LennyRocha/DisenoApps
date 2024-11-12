@@ -17,7 +17,7 @@
         <item name="colorOnSurfaceVariant">#88A06C</item>
         <item name="colorError">#CC0621</item>
         <item name="colorOnError">#FFFFFF</item>
-        <item name="backgroundColor">#1E1F22</item>
+        <item name="android:windowBackground">@color/layoutColorNight</item>
         <item name="fontFamily">@font/sour_gummy</item>
     </style>
 </resources>

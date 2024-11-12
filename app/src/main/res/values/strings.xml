@@ -6,6 +6,7 @@
     <string name="contra">Contraseña</string>
     <string name="acceder">Acceder</string>
     <string name="registrarme">Registrarme</string>
+    <string name="bienve">Bienvenido</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
