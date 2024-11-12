@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PatrullaAmbiental" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#588100</item>
+        <item name="colorPrimaryDark">#618434</item>
+        <item name="colorSecondary">#8DB600</item>
+        <item name="colorSurface">#C6DB52</item>
+        <item name="colorAccent">#FFFF8B</item>
+        <item name="colorOnPrimary">#F7FDEF</item>
+        <item name="colorOnSecondary">#CBDDB5</item>
+        <item name="colorOnBackground">#255000</item>
+        <item name="colorOnSurface">#97B670</item>
+        <item name="colorPrimaryVariant">#85A732</item>
+        <item name="colorSecondaryVariant">#AEDD39</item>
+        <item name="colorOnSurfaceVariant">#A8CA7E</item>
+        <item name="colorError">#E80729</item>
+        <item name="colorOnError">#000000</item>
+        <item name="fontFamily">@font/sour_gummy</item>
+    </style>
+
+    <style name="Theme.PatrullaAmbiental" parent="Base.Theme.PatrullaAmbiental" />
+</resources>
