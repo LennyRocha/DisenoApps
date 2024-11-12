@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
 
             if(valor != "#"){
                 // Iniciar la actividad principal después del retardo
-                val intent = Intent(this@MainActivity, Login::class.java)
+                val intent = Intent(this@MainActivity, Inicio::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }else{
-                val intent = Intent(this@MainActivity, Inicio::class.java)
+                val intent = Intent(this@MainActivity, Login::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
                 Toast.makeText(this@MainActivity,"Bienvenido "+valor,Toast.LENGTH_SHORT).show()
