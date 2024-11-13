@@ -7,60 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".Inicio">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
+    <FrameLayout
+        android:id="@+id/contenedor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="-250dp"
-            android:background="@drawable/circulo2"
-            android:foregroundTint="#000000" />
-
-        <TextView
-            android:id="@+id/txtBienvenido"
-            android:layout_width="wrap_content"
-            android:layout_height="16dp"
-            android:layout_alignBottom="@+id/view"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            android:fontFamily="@font/sour_gummy_extra_bold"
-            android:gravity="center"
-            android:hint="BIENVENIDO USERNAME"
-            android:textColor="@color/colorOnPrimary"
-            android:textSize="40sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </RelativeLayout>
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="@+id/my_toolbar"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
+        style="@style/downMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -70,9 +25,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu"
         app:titleTextColor="@color/colorOnPrimary" />
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/my_toolbar2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,5 +38,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:titleTextColor="@color/colorOnPrimary" />
+        app:titleTextColor="@color/colorOnPrimary"
+        app:menu="@menu/menu_botton"
+        app:labelVisibilityMode="selected"
+        app:itemRippleColor="@color/colorPrimaryDark"
+        style="@style/downMenu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

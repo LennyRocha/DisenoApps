@@ -6,6 +6,7 @@
         android:id="@+id/camara"
         android:icon="@android:drawable/ic_menu_camera"
         android:title="foto"
+        android:iconTint="@color/colorAccent"
         app:showAsAction="always" />
     <item
         android:id="@+id/perfil"
