@@ -6,18 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mx.edu.utez.patrullaambiental.databinding.FragmentInicioBinding
+import mx.edu.utez.patrullaambiental.databinding.FragmentFragInicioBinding
 
 class Frag_inicio : Fragment() {
     // Variable para el binding
-    private var _binding: FragmentInicioBinding? = null
+    private var _binding: FragmentFragInicioBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentInicioBinding.inflate(inflater, container, false)
+        _binding = FragmentFragInicioBinding.inflate(inflater, container, false)
 
         val sharedPreferences = requireActivity().getSharedPreferences("archivo", Context.MODE_PRIVATE)
         val valor = sharedPreferences.getString("usuario","#")

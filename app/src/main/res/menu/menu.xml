@@ -4,9 +4,9 @@
 
     <item
         android:id="@+id/camara"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/baseline_photo_camera_24"
         android:title="foto"
-        android:iconTint="@color/colorAccent"
+        android:iconTint="@color/colorOnPrimary"
         app:showAsAction="always" />
     <item
         android:id="@+id/perfil"
