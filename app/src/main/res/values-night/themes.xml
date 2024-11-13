@@ -20,4 +20,10 @@
         <item name="android:windowBackground">@color/layoutColorNight</item>
         <item name="fontFamily">@font/sour_gummy</item>
     </style>
+
+    <style name="downMenuDark">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="itemIconTint">@color/colorAccentNight</item>
+        <item name="itemTextColor">@color/colorAccentNight</item>
+    </style>
 </resources>

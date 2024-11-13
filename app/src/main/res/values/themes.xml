@@ -17,6 +17,12 @@
         <item name="colorError">#E80729</item>
         <item name="colorOnError">#000000</item>
         <item name="fontFamily">@font/sour_gummy</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="downMenu">
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
     </style>
 
     <style name="Theme.PatrullaAmbiental" parent="Base.Theme.PatrullaAmbiental" />
