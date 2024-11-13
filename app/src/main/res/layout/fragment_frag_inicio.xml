@@ -22,22 +22,22 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="-250dp"
+            android:layout_marginTop="-350dp"
             android:background="@drawable/circulo2"
             android:foregroundTint="#000000" />
 
         <TextView
             android:id="@+id/txtBienvenido"
             android:layout_width="wrap_content"
-            android:layout_height="16dp"
+            android:layout_height="10dp"
             android:layout_alignBottom="@+id/view"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="50dp"
             android:fontFamily="@font/sour_gummy_extra_bold"
             android:gravity="center"
             android:hint="BIENVENIDO USERNAME"
@@ -55,8 +55,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </FrameLayout>

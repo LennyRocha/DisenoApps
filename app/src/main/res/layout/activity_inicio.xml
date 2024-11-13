@@ -9,9 +9,12 @@
 
     <FrameLayout
         android:id="@+id/contenedor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="@+id/my_toolbar"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -29,19 +32,19 @@
         app:titleTextColor="@color/colorOnPrimary" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/my_toolbar2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:id="@+id/bottomNav"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:itemActiveIndicatorStyle="@style/ThemeOverlay.AppCompat.Light"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemRippleColor="@color/colorPrimaryDark"
+        app:itemTextAppearanceActive="@color/colorAccentNight"
+        app:itemTextAppearanceActiveBoldEnabled="true"
+        app:itemTextColor="@color/nav_item_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:titleTextColor="@color/colorOnPrimary"
-        app:menu="@menu/menu_botton"
-        app:labelVisibilityMode="selected"
-        app:itemRippleColor="@color/colorPrimaryDark"
-        style="@style/downMenu"/>
+        app:menu="@menu/menu_botton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

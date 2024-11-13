@@ -25,7 +25,7 @@ class Inicio : AppCompatActivity() {
         val valor = sharedPreferences.getString("usuario","#")
 
         // Configuramos el listener para el BottomNavigationView
-        binding.myToolbar2.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item1 -> {
                     loadFragment(fragment1)
