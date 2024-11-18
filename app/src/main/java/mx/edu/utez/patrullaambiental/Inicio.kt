@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,8 @@ class Inicio : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.myToolbar)
+
+        binding.myToolbar.setLogo(R.mipmap.ic_launcher_round)
 
         val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
         val valor = sharedPreferences.getString("usuario","#")
