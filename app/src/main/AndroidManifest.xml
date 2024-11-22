@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PatrullaAmbiental"
         tools:targetApi="34">
         <activity
+            android:name=".MiPerfil"
+            android:exported="false" />
+        <activity
             android:name=".Inicio"
             android:exported="false" />
         <activity
