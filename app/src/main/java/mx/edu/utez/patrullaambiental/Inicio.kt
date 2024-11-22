@@ -66,7 +66,7 @@ class Inicio : AppCompatActivity() {
     //Asigna el funcionaminto al menú
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.logout ->{
+            R.id.logout -> {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle("¿Cerrar sesión?")
                 builder.setMessage("Estas a punto de cerrar sesión, \n ¿Deseas continuar?")
@@ -86,6 +86,11 @@ class Inicio : AppCompatActivity() {
                     dialog.cancel()
                 }
                 builder.show()
+            }
+            R.id.perfil -> {
+                val intent = Intent(this@Inicio,MiPerfil::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

@@ -8,6 +8,10 @@
     <string name="registrarme">Registrarme</string>
     <string name="bienve">Bienvenido</string>
 
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="correo">Correo Electrónico</string>
+
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
