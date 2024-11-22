@@ -22,6 +22,8 @@ class MiPerfil : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.myToolbar2)
+
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
 
