@@ -16,10 +16,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="400dp"
         android:layout_marginRight="50dp"
         android:gravity="center"
         android:text="TextView"
         android:textSize="34sp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPerfil2"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/perfil_default"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedImgView"
+        app:srcCompat="@drawable/perfil_default"
+        tools:ignore="MissingClass" />
 
 </FrameLayout>
