@@ -1,15 +1,17 @@
 package mx.edu.utez.patrullaambiental
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import mx.edu.utez.patrullaambiental.databinding.FragmentFragMapaBinding
+import mx.edu.utez.patrullaambiental.model.Reportito
+import java.time.LocalDate
 
 /**
  * A simple [Fragment] subclass.
@@ -17,43 +19,44 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Frag_mapa : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentFragMapaBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag_mapa, container, false)
+        _binding = FragmentFragMapaBinding.inflate(inflater, container, false)
+
+        val sharedPreferences = requireActivity().getSharedPreferences("archivo", Context.MODE_PRIVATE)
+        val valor = sharedPreferences.getString("usuario","#")
+        //binding.textView3.setText(resources.getString(R.string.bienve)+" "+valor)
+
+        val lista = listOf(
+            Reportito(R.drawable.baseline_email_24,"Juan",LocalDate.now(),18.8497217, -99.2010277)
+        )
+
+        /*
+        val adaptador = ContactoAdapter(lista)
+        adaptador.onItemClick = { contacto ->
+            val intent = Intent(this@MainActivity,DetalleContacto::class.java)
+            intent.putExtra("nombre",contacto.nombre)
+            Toast.makeText(this@MainActivity,contacto.nombre, Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        }
+
+        binding.rvContactos.adapter = adaptador
+        binding.rvContactos.layoutManager =
+            LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false)
+
+         */
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Frag_mapa.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Frag_mapa().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null  // Evitar memory leaks
     }
 }
