@@ -41,7 +41,7 @@
             android:fontFamily="@font/sour_gummy_extra_bold"
             android:gravity="center"
             android:hint="BIENVENIDO USERNAME"
-            android:textColor="@color/colorOnPrimary"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
