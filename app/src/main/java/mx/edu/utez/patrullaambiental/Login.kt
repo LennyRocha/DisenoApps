@@ -27,8 +27,8 @@ class Login : AppCompatActivity() {
                         commit()
                     }
                     val intent = Intent(this@Login, Inicio::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 }else{
                     Toast.makeText(this@Login,"El usuario y una contraseña no son correctos cuyeyo", Toast.LENGTH_SHORT).show()
                 }
@@ -38,12 +38,9 @@ class Login : AppCompatActivity() {
         }
 
         binding.linkSignUp.setOnClickListener{
-            val snack =
-                Snackbar.make(binding.main, "Funcionalidad en construcción...", Snackbar.LENGTH_SHORT)
-            snack.setAction("Aceptar") {
-                snack.dismiss()
-            }
-            snack.show()
+            val intent = Intent(this@Login, Signup::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
 }
