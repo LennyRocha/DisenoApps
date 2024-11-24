@@ -19,17 +19,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_mi_perfil"
         app:titleTextColor="@color/colorOnPrimary" />
 
     <TextView
         android:id="@+id/txtPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:text="Mi perfil"
+        android:text="@string/miPer"
         android:textColor="@color/colorOnPrimary"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -81,7 +80,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:text="@string/camFoto"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -90,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nombre"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp" />
 
             <EditText
@@ -110,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/apellido"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp" />
 
             <EditText
@@ -118,19 +117,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/colorAccentNight"
+                android:backgroundTint="?attr/colorAccent"
                 android:drawableEnd="@android:drawable/ic_menu_edit"
-                android:drawableTint="@color/colorAccentNight"
+                android:drawableTint="?attr/colorAccent"
                 android:ems="10"
                 android:hint="@string/apellido"
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/txtCorreo"
+                android:id="@+id/txtCorreoNuevo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/correo"
-                android:textColor="@color/colorOnBackground"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp" />
 
             <TextView
@@ -140,7 +139,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="20233tnn094@utez.edu.mx"
-                android:textColor="@color/colorOnSurfaceNight"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="24sp" />
 
         </LinearLayout>
