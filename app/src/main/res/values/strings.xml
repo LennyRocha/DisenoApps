@@ -8,10 +8,29 @@
     <string name="registrarme">Registrarme</string>
     <string name="bienve">Bienvenido</string>
 
+    <string name="item1">Inicio</string>
+    <string name="item2">Mensajes</string>
+    <string name="item3">Mapas</string>
+    <string name="item4">Noticias</string>
+
+    <string name="itemTop1">Mi perfil</string>
+    <string name="itemTop2">Ajustes</string>
+    <string name="itemTop3">Cerrar sesión</string>
+
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="correo">Correo Electrónico</string>
     <string name="camFoto">Cambiar foto</string>
+
+    <string name="miPer">Mi perfil</string>
+
+    <string name="detallesReg">Detalles de registro</string>
+    <string name="confirmReg">Confirmar contraseña</string>
+    <string name="recordarReg">Recordarme</string>
+    <string name="inicioReg">¡REGISTRATE!</string>
+    <string name="rolReg">Rol</string>
+    <string name="rol1">Administrador</string>
+    <string name="rol2">Ordinario</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

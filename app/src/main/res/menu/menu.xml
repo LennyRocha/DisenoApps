@@ -10,11 +10,11 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/perfil"
-        android:title="Mi perfil" />
+        android:title="@string/itemTop1" />
     <item
         android:id="@+id/config"
-        android:title="Ajustes" />
+        android:title="@string/itemTop2" />
     <item
         android:id="@+id/logout"
-        android:title="Cerrar sesión" />
+        android:title="@string/itemTop3" />
 </menu>
