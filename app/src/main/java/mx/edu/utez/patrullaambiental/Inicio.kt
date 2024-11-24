@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,8 @@ import mx.edu.utez.patrullaambiental.databinding.ActivityInicioBinding
 
 class Inicio : AppCompatActivity() {
     private val fragment1 = Frag_inicio()
-    private val fragment2 = Frag_mapa()
+    private val fragment2 = Frag_correo()
+    private val fragment3 = Frag_mapa()
     private lateinit var binding : ActivityInicioBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +38,10 @@ class Inicio : AppCompatActivity() {
                     loadFragment(fragment2)
                     true
                 }
-                /*R.id.item3 -> {
-                    loadFragment(thirdFragment)
+                R.id.item3 -> {
+                    loadFragment(fragment3)
                     true
-                }*/
+                }
                 else -> false
             }
         }

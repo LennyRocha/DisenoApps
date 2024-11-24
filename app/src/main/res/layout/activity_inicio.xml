@@ -35,7 +35,7 @@
         android:id="@+id/bottomNav"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         app:itemActiveIndicatorStyle="@style/ThemeOverlay.AppCompat.Light"
         app:itemIconTint="@color/nav_item_color"
         app:itemRippleColor="@color/colorPrimaryDark"
