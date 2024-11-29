@@ -3,12 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/camara"
-        android:icon="@drawable/baseline_photo_camera_24"
-        android:title="foto"
-        android:iconTint="@color/colorOnPrimary"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/perfil"
         android:title="@string/itemTop1" />
     <item
