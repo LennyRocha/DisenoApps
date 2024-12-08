@@ -25,5 +25,9 @@
         <item name="itemTextColor">@color/nav_item_color</item>
     </style>
 
+    <style name="def_back">
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
     <style name="Theme.PatrullaAmbiental" parent="Base.Theme.PatrullaAmbiental" />
 </resources>

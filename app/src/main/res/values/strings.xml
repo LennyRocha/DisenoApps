@@ -33,6 +33,13 @@
     <string name="rol1">Administrador</string>
     <string name="rol2">Ordinario</string>
 
+    <string name="main_menu_1">Nuevo Reporte</string>
+    <string name="main_menu_2">Mis Reportes</string>
+    <string name="main_menu_3">Reglamento ambiental</string>
+    <string name="main_menu_4">Evidencias</string>
+    <string name="main_menu_5">Eventos</string>
+    <string name="main_menu_6">Educación ambiental</string>
+
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>

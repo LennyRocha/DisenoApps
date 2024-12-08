@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import mx.edu.utez.patrullaambiental.databinding.FragmentFragInicioBinding
 
 class Frag_inicio : Fragment() {
@@ -22,6 +23,15 @@ class Frag_inicio : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences("archivo", Context.MODE_PRIVATE)
         val valor = sharedPreferences.getString("usuario","#")
         binding.txtBienvenido.setText(resources.getString(R.string.bienve)+" "+valor)
+
+        val animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.entrada_cards)
+
+        binding.mainMenu1.startAnimation(animation)
+        binding.mainMenu2.startAnimation(animation)
+        binding.mainMenu3.startAnimation(animation)
+        binding.mainMenu4.startAnimation(animation)
+        binding.mainMenu5.startAnimation(animation)
+        binding.mainMenu6.startAnimation(animation)
 
         return binding.root
     }
