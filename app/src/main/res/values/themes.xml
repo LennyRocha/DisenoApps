@@ -14,6 +14,7 @@
         <item name="colorPrimaryVariant">#85A732</item>
         <item name="colorSecondaryVariant">#AEDD39</item>
         <item name="colorOnSurfaceVariant">#A8CA7E</item>
+        <item name="colorBackgroundFloating">@color/white</item>
         <item name="colorError">#E80729</item>
         <item name="colorOnError">#000000</item>
         <item name="fontFamily">@font/sour_gummy</item>
@@ -27,6 +28,11 @@
 
     <style name="def_back">
         <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="font_bold">
+        <item name="fontFamily">@font/sour_gummy_extra_bold</item>
+        <item name="textFillColor">?attr/colorOnBackground</item>
     </style>
 
     <style name="Theme.PatrullaAmbiental" parent="Base.Theme.PatrullaAmbiental" />
