@@ -18,7 +18,8 @@
     <color name="colorError">#E80729</color>
     <color name="colorOnError">#000000</color>
     <color name="layoutColor">#1E1F22</color>
-
+    <color name="colorBack">@color/white</color>
+    <color name="colorBackNight">@color/layoutColor</color>
     <color name="colorPrimaryNight">#3E5900</color>
     <color name="colorPrimaryDarkNight">#4A6100</color>
     <color name="colorSecondaryNight">#6A8900</color>
