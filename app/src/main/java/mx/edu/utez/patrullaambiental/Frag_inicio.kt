@@ -1,6 +1,8 @@
 package mx.edu.utez.patrullaambiental
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,6 +41,13 @@ class Frag_inicio : Fragment() {
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 
+        binding.mainMenu3.setOnClickListener {
+            val url = "https://www.utez.edu.mx/wp-content/uploads/2024/09/REGLAMENTO_AMBIENTAL_UTEZ.pdf"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
@@ -47,3 +56,5 @@ class Frag_inicio : Fragment() {
         _binding = null  // Evitar memory leaks
     }
 }
+
+//https://www.utez.edu.mx/boletin-utez-verde/ para después poder descargar boletines o verlos
