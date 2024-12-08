@@ -35,5 +35,9 @@
         <item name="textFillColor">?attr/colorOnBackground</item>
     </style>
 
+    <style name="font_bold_noGreen">
+        <item name="fontFamily">@font/sour_gummy_extra_bold</item>
+    </style>
+
     <style name="Theme.PatrullaAmbiental" parent="Base.Theme.PatrullaAmbiental" />
 </resources>

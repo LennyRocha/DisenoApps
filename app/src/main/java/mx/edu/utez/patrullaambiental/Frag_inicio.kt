@@ -26,12 +26,18 @@ class Frag_inicio : Fragment() {
 
         val animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.entrada_cards)
 
+        val animation2 = AnimationUtils.loadAnimation(requireActivity(), R.anim.entrada_cards_reverse)
+
+        val apareceTexto = AnimationUtils.loadAnimation(requireActivity(), R.anim.entrada_text)
+
         binding.mainMenu1.startAnimation(animation)
         binding.mainMenu2.startAnimation(animation)
         binding.mainMenu3.startAnimation(animation)
         binding.mainMenu4.startAnimation(animation)
         binding.mainMenu5.startAnimation(animation)
         binding.mainMenu6.startAnimation(animation)
+        binding.appbar.startAnimation(animation2)
+        binding.txtBienvenido.startAnimation(apareceTexto)
 
         return binding.root
     }

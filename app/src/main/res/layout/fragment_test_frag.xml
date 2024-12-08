@@ -34,7 +34,7 @@
 
             <TextView
                 style="@style/font_bold"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
@@ -73,8 +73,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -89,6 +91,7 @@
                         android:src="@drawable/baseline_note_add_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_extra_bold"
@@ -111,8 +114,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -127,6 +132,7 @@
                         android:src="@drawable/baseline_folder_copy_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_expanded_extra_bold"
@@ -149,8 +155,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -165,6 +173,7 @@
                         android:src="@drawable/baseline_menu_book_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_extra_bold"
@@ -187,8 +196,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -203,6 +214,7 @@
                         android:src="@drawable/baseline_photo_library_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_expanded_extra_bold"
@@ -225,8 +237,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -241,6 +255,7 @@
                         android:src="@drawable/baseline_event_note_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_expanded_extra_bold"
@@ -263,8 +278,10 @@
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
+                android:clickable="true"
                 app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -279,6 +296,7 @@
                         android:src="@drawable/baseline_school_24" />
 
                     <TextView
+                        style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_extra_bold"

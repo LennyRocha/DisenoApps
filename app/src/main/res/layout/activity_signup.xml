@@ -92,6 +92,7 @@
 
             <TextView
                 android:id="@+id/txtTitulo"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -144,6 +145,7 @@
 
                     <TextView
                         android:id="@+id/txtNombreNuevo"
+                        style="@style/font_bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/nombre"
@@ -161,6 +163,7 @@
 
                     <TextView
                         android:id="@+id/txtApellidoNuevo"
+                        style="@style/font_bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -182,6 +185,7 @@
 
             <TextView
                 android:id="@+id/txtCorreoNuevo"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -200,6 +204,7 @@
 
             <TextView
                 android:id="@+id/txtContraNueva"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -218,6 +223,7 @@
 
             <TextView
                 android:id="@+id/txtConfirmaContra"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/confirmReg"
@@ -235,6 +241,7 @@
 
             <TextView
                 android:id="@+id/txtRolNuevo"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -253,6 +260,7 @@
 
             <CheckBox
                 android:id="@+id/cbRecordar"
+                style="@style/font_bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

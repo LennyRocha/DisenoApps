@@ -49,6 +49,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
+            style="val animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.entrada_cards)"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -75,9 +76,11 @@
 
             <TextView
                 android:id="@+id/btnCambiaFoto"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="@string/camFoto"
                 android:textColor="?attr/colorOnBackground"
@@ -86,6 +89,7 @@
 
             <TextView
                 android:id="@+id/txtNombre"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nombre"
@@ -106,6 +110,7 @@
 
             <TextView
                 android:id="@+id/txtApellido"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/apellido"
@@ -126,6 +131,7 @@
 
             <TextView
                 android:id="@+id/txtCorreoNuevo"
+                style="@style/font_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/correo"
