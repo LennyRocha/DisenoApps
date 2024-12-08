@@ -76,6 +76,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -117,6 +119,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -158,6 +162,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -199,6 +205,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -240,6 +248,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -281,6 +291,8 @@
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
                 android:clickable="true"
+                android:focusable="auto"
+                android:focusableInTouchMode="true"
                 app:cardBackgroundColor="?attr/colorAccent"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
