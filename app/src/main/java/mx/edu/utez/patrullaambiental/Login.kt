@@ -29,11 +29,16 @@ class Login : AppCompatActivity() {
                     val intent = Intent(this@Login, Inicio::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
-                }else{
-                    Toast.makeText(this@Login,"El usuario y una contraseña no son correctos cuyeyo", Toast.LENGTH_SHORT).show()
+                }else if (binding.edtUsuario.text.toString().toLowerCase(Locale.ROOT) != "leo"){
+                    Toast.makeText(this@Login,getString(R.string.error_login), Toast.LENGTH_SHORT).show()
+                    binding.edtUsuario.error = getString(R.string.error_name)
+                }
+                else if (binding.edtContra.text.toString().toLowerCase(Locale.ROOT) != "123"){
+                    Toast.makeText(this@Login,getString(R.string.error_login), Toast.LENGTH_SHORT).show()
+                    binding.edtContra.error = getString(R.string.error_pass)
                 }
             }else{
-                Toast.makeText(this@Login,"Escribe un usuario y una contraseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Login,getString(R.string.empty_login), Toast.LENGTH_SHORT).show()
             }
         }
 
