@@ -9,6 +9,11 @@
     <string name="registrarme">Registrarme</string>
     <string name="bienve">Bienvenido</string>
 
+    <string name="error_login">El usuario y/o contraseña no son correctos</string>
+    <string name="error_name">Usuario no encontrado</string>
+    <string name="error_pass">Contraseña incorrecta</string>
+    <string name="empty_login">Rellena todos los campos primero</string>
+
     <string name="item1">Inicio</string>
     <string name="item2">Mensajes</string>
     <string name="item3">Mapa</string>
