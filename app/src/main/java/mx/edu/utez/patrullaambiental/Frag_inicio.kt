@@ -41,8 +41,13 @@ class Frag_inicio : Fragment() {
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 
+
         binding.mainMenu1.setOnClickListener {
             //val intent = Intent(requireActivity(),)
+        }
+
+        binding.mainMenu2.setOnClickListener {
+
         }
 
         binding.mainMenu3.setOnClickListener {
@@ -54,10 +59,15 @@ class Frag_inicio : Fragment() {
             startActivity(intent)*/
         }
 
+        binding.mainMenu4.setOnClickListener {
+
+        }
+
         binding.mainMenu5.setOnClickListener {
             val intent = Intent(requireActivity(), BolentinUtezView::class.java)
             startActivity(intent)
         }
+
 
 
         return binding.root

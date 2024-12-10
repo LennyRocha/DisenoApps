@@ -18,9 +18,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
         <activity
+            android:name=".EducacionView"
+            android:exported="false" />
+        <activity
             android:name=".BolentinUtezView"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
