@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import mx.edu.utez.patrullaambiental.databinding.FragmentFragNoticiasBinding
 
@@ -25,16 +27,23 @@ class Frag_noticias : Fragment() {
     ): View? {
         _binding = FragmentFragNoticiasBinding.inflate(inflater, container, false)
 
-        val sharedPreferences = requireActivity().getSharedPreferences("archivo", Context.MODE_PRIVATE)
-        val valor = sharedPreferences.getString("usuario", "#")
-
-        Toast.makeText(requireActivity(),"Por construir",Toast.LENGTH_SHORT).show()
-
+        //de aqui
+        val webView: WebView = binding.WvNoticias
+        setupWebView(webView)
+        //aqui
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null  // Evitar memory leaks
+    private fun setupWebView(webView: WebView){
+        val facebookUrl = "https://www.facebook.com/PatrullaUTEZ/"
+        webView.webViewClient = WebViewClient()
+        webView.settings.javaScriptEnabled = true
+        webView.loadUrl(facebookUrl)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+    
 }
