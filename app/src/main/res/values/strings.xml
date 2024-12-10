@@ -52,6 +52,19 @@
     <string name="logut_body">"Estas a punto de cerrar sesión, \n ¿Deseas continuar?"</string>
     <string name="si">Si</string>
     <string name="no">No</string>
+    <string name="settingsTitle">Configuración</string>
+    <string name="temas">Apariencia</string>
+    <string name="temaClaro">Claro</string>
+    <string name="temaOscuro">Oscuro</string>
+    <string name="lenguajes">Idiomas</string>
+    <string name="lenguajeEsp">Español</string>
+    <string name="lenguajeEng">Inglés</string>
+    <string name="lenguajeFre">Francés</string>
+    <string name="newPass">Cambiar mi contraseña</string>
+    <string name="newPassText">Nueva contraseña</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="succesSave">¡Contraseña actualizada!</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
