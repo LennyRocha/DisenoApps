@@ -7,6 +7,7 @@ import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -45,5 +46,11 @@ class DocumentView : AppCompatActivity() {
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("Documento cerrado")
+        Toast.makeText(this, "PDF cerrado", Toast.LENGTH_SHORT).show()
     }
 }
