@@ -42,10 +42,12 @@ class Frag_inicio : Fragment() {
         binding.txtBienvenido.startAnimation(apareceTexto)
 
         binding.mainMenu3.setOnClickListener {
-            val url = "https://www.utez.edu.mx/wp-content/uploads/2024/09/REGLAMENTO_AMBIENTAL_UTEZ.pdf"
+            val intent = Intent(requireActivity(), DocumentView::class.java)
+            startActivity(intent)
+            /*val url = "https://www.utez.edu.mx/wp-content/uploads/2024/09/REGLAMENTO_AMBIENTAL_UTEZ.pdf"
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
-            startActivity(intent)
+            startActivity(intent)*/
         }
 
         return binding.root
