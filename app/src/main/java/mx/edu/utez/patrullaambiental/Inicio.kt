@@ -16,7 +16,6 @@ class Inicio : AppCompatActivity() {
     private val fragment1 = Frag_inicio()
     private val fragment2 = Frag_noticias()
     private val fragment3 = Frag_mapa()
-    private val fragment4 = Test_frag()
     private lateinit var binding : ActivityInicioBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
