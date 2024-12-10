@@ -54,6 +54,10 @@ class Frag_inicio : Fragment() {
             startActivity(intent)*/
         }
 
+        binding.mainMenu5.setOnClickListener {
+            val intent = Intent(requireActivity(), BolentinUtezView::class.java)
+            startActivity(intent)
+        }
 
 
         return binding.root

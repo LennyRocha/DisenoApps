@@ -13,35 +13,33 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
-import mx.edu.utez.patrullaambiental.databinding.ActivityDocumentViewBinding
+import mx.edu.utez.patrullaambiental.databinding.ActivityBolentinUtezViewBinding
 
-class DocumentView : AppCompatActivity() {
-    private lateinit var binding: ActivityDocumentViewBinding
+class BolentinUtezView : AppCompatActivity() {
+    private lateinit var binding: ActivityBolentinUtezViewBinding
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityBolentinUtezViewBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        binding = ActivityDocumentViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val webView: WebView = binding.webView
+        val webView: WebView = binding.WvBoletin
 
-        if (isInternetAvailable()) {
-            // Configuración del WebView para cargar el PDF
+        if (isInternetAvailable()){
             webView.webViewClient = WebViewClient()
             webView.settings.javaScriptEnabled = true
-            val pdfUrl = "https://www.utez.edu.mx/wp-content/uploads/2024/09/REGLAMENTO_AMBIENTAL_UTEZ.pdf"
-            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$pdfUrl")
-        } else {
-            // Mostrar Snackbar si no hay Internet
-            Snackbar.make(webView, getString(R.string.noInternet), Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.reintenta)) {
+            webView.loadUrl("https://www.utez.edu.mx/boletin-utez-verde/")
+        } else{
+            Snackbar.make(webView, getString(R.string.noInternet) , Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.reintenta)){
                     recreate()
                 }
                 .show()
         }
+
     }
 
-        private fun isInternetAvailable(): Boolean {
+    private fun isInternetAvailable(): Boolean{
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
@@ -50,7 +48,8 @@ class DocumentView : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        println("Documento cerrado")
-        Toast.makeText(this, "PDF cerrado", Toast.LENGTH_SHORT).show()
+        println("Pagina cerrada")
+        Toast.makeText(this, "Pagina Cerrada", Toast.LENGTH_SHORT).show()
+
     }
 }

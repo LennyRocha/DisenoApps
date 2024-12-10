@@ -15,9 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PatrullaAmbiental"
-        tools:targetApi="34"
         android:usesCleartextTraffic="true"
-        >
+        tools:targetApi="34">
+        <activity
+            android:name=".BolentinUtezView"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
