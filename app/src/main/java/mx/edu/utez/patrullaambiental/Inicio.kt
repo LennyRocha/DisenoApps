@@ -78,11 +78,11 @@ class Inicio : AppCompatActivity() {
         when(item.itemId){
             R.id.logout -> {
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("¿Cerrar sesión?")
-                builder.setMessage("Estas a punto de cerrar sesión, \n ¿Deseas continuar?")
+                builder.setTitle(getString(R.string.logut_pregunta))
+                builder.setMessage(getString(R.string.logut_body))
                 //builder.setIcon(R.drawable.icon)
                 //builder.setView(dialogView)
-                builder.setPositiveButton("Si") { dialog, _ ->
+                builder.setPositiveButton(getString(R.string.si)) { dialog, _ ->
                     val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
                     with(sharedPreferences.edit()){
                         remove("usuario")
@@ -92,7 +92,7 @@ class Inicio : AppCompatActivity() {
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                 }
-                builder.setNegativeButton("No") { dialog, _ ->
+                builder.setNegativeButton(getString(R.string.no)) { dialog, _ ->
                     dialog.cancel()
                 }
                 builder.show()

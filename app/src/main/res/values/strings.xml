@@ -45,6 +45,14 @@
     <string name="main_menu_5">Eventos</string>
     <string name="main_menu_6">Educación ambiental</string>
 
+    <string name="noInternet">¡No hay conexión a internet, intentalo nuevamente!</string>
+    <string name="reintenta">Reintentar</string>
+
+    <string name="logut_pregunta">¿Cerrar sesión?</string>
+    <string name="logut_body">"Estas a punto de cerrar sesión, \n ¿Deseas continuar?"</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
