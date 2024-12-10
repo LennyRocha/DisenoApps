@@ -80,7 +80,11 @@ class Inicio : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(getString(R.string.logut_pregunta))
                 builder.setMessage(getString(R.string.logut_body))
+<<<<<<< HEAD
                 //builder.setIcon(R.drawable.icon)
+=======
+                builder.setIcon(R.drawable.logo_verde)
+>>>>>>> 47c21826e300773047d7fe854c556500576cfd73
                 //builder.setView(dialogView)
                 builder.setPositiveButton(getString(R.string.si)) { dialog, _ ->
                     val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
@@ -103,7 +107,13 @@ class Inicio : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.config -> {
+<<<<<<< HEAD
                 loadFragment(fragment4)
+=======
+                val intent = Intent(this@Inicio,SettingsActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+>>>>>>> 47c21826e300773047d7fe854c556500576cfd73
             }
         }
         return super.onOptionsItemSelected(item)

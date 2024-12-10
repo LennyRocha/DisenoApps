@@ -52,7 +52,11 @@ class MiPerfil : AppCompatActivity() {
 
         binding.btnCambiaFoto.setOnClickListener {
             val snack =
+<<<<<<< HEAD
                 Snackbar.make(binding.main, "Funcionalidad en construcción... Pronto funcionará", Snackbar.LENGTH_SHORT)
+=======
+                Snackbar.make(binding.main, "Funcionalidad en construcción...", Snackbar.LENGTH_SHORT)
+>>>>>>> 47c21826e300773047d7fe854c556500576cfd73
             snack.setAction("Aceptar") {
                 snack.dismiss()
             }
