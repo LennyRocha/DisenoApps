@@ -35,10 +35,10 @@ class Frag_noticias : Fragment() {
     }
 
     private fun setupWebView(webView: WebView){
-        val facebookUrl = "https://www.facebook.com/PatrullaUTEZ/"
-        webView.webViewClient = WebViewClient()
+        val webView: WebView = binding.WvNoticias
         webView.settings.javaScriptEnabled = true
-        webView.loadUrl(facebookUrl)
+        webView.webViewClient = WebViewClient()
+        webView.loadUrl("https://www.facebook.com/PatrullaUTEZ/about")
     }
 
     override fun onDestroy() {

@@ -41,6 +41,10 @@ class Frag_inicio : Fragment() {
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 
+        binding.mainMenu1.setOnClickListener {
+            //val intent = Intent(requireActivity(),)
+        }
+
         binding.mainMenu3.setOnClickListener {
             val intent = Intent(requireActivity(), DocumentView::class.java)
             startActivity(intent)
@@ -49,6 +53,8 @@ class Frag_inicio : Fragment() {
             intent.data = Uri.parse(url)
             startActivity(intent)*/
         }
+
+
 
         return binding.root
     }
