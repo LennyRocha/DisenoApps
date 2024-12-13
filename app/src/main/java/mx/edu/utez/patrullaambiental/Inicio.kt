@@ -85,6 +85,12 @@ class Inicio : AppCompatActivity() {
                     val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
                     with(sharedPreferences.edit()){
                         remove("usuario")
+                        remove("apellido")
+                        remove("password")
+                        remove("fotoP")
+                        remove("email")
+                        remove("estado")
+                        remove("id")
                         commit()
                     }
                     val intent = Intent(this@Inicio,MainActivity::class.java)

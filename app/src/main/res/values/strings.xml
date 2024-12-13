@@ -9,6 +9,7 @@
     <string name="registrarme">Registrarme</string>
     <string name="bienve">Bienvenido</string>
 
+    <string name="err_500">Algo salió mal, intentalo nuevamente</string>
     <string name="error_login">El usuario y/o contraseña no son correctos</string>
     <string name="error_name">Usuario no encontrado</string>
     <string name="error_pass">Contraseña incorrecta</string>
@@ -35,9 +36,6 @@
     <string name="confirmReg">Confirmar contraseña</string>
     <string name="recordarReg">Recordarme</string>
     <string name="inicioReg">¡REGISTRATE!</string>
-    <string name="rolReg">Rol</string>
-    <string name="rol1">Administrador</string>
-    <string name="rol2">Ordinario</string>
 
     <string name="main_menu_1">Nuevo Reporte</string>
     <string name="main_menu_2">Mis Reportes</string>
@@ -77,6 +75,7 @@
 
     <string name="no_nums">No se admiten números</string>
     <string name="exito_registro">Registro exitoso</string>
+    <string name="error_registro">Error al registrar:</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

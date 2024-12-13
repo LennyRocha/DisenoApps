@@ -1,9 +1,13 @@
 package mx.edu.utez.patrullaambiental
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -24,6 +28,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import mx.edu.utez.patrullaambiental.databinding.ActivityInicioBinding
 import mx.edu.utez.patrullaambiental.databinding.ActivityMiPerfilBinding
+import mx.edu.utez.patrullaambiental.utils.cargarImagen
+import mx.edu.utez.patrullaambiental.utils.loadBase64Image
 import java.io.File
 import java.util.UUID
 
@@ -84,6 +90,8 @@ class MiPerfil : AppCompatActivity() {
             scaleType = ImageView.ScaleType.FIT_CENTER
         }
 
+        loadPerfil()
+
         binding.btnCambiaFoto.setOnClickListener {
             // Crear el BottomSheetDialog
             val bottomSheetDialog = BottomSheetDialog(this)
@@ -137,4 +145,19 @@ class MiPerfil : AppCompatActivity() {
     fun actualizarPerfil(uriel : Uri){
         //
     }
+
+    fun loadPerfil(){
+        val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
+        val imagenPerf : String = sharedPreferences.getString("fotoP","#").toString()
+        if (imagenPerf != "#"){
+            loadBase64Image(imagenPerf,binding.imgPerfil)
+        }else{
+            binding.imgPerfil.setImageResource(R.drawable.perfil_default)
+        }
+        binding.edtNombre.setText(sharedPreferences.getString("usuario","#"))
+        binding.edtApellido.setText(sharedPreferences.getString("apellido","#"))
+        binding.txtCorreoNuevo.setText(sharedPreferences.getString("email","#"))
+
+    }
+
 }

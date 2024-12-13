@@ -36,8 +36,6 @@ class Frag_inicio : Fragment() {
         binding.mainMenu2.startAnimation(animation)
         binding.mainMenu3.startAnimation(animation)
         binding.mainMenu4.startAnimation(animation)
-        binding.mainMenu5.startAnimation(animation)
-        binding.mainMenu6.startAnimation(animation)
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 

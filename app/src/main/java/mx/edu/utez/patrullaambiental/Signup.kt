@@ -128,7 +128,7 @@ class Signup : AppCompatActivity() {
 
             if(nombre.isNotEmpty()&&apellido.isNotEmpty()&&correo.isNotEmpty()&&contrasena.isNotEmpty()&&confirmarContra.isNotEmpty()){
                 if(contrasena.equals(confirmarContra)){
-                    val nuevoUsu = Usuario(1,nombre,apellido,correo,contrasena,estado,CrearBase64(binding.imgPerfil))
+                    val nuevoUsu = Usuario(1,nombre,apellido,contrasena,correo,estado,CrearBase64(binding.imgPerfil))
                     registrarConVolley(nuevoUsu)
                 }else{
                     Toast.makeText(this,getString(R.string.error_confirm_pass), Toast.LENGTH_SHORT).show()
@@ -226,12 +226,8 @@ class Signup : AppCompatActivity() {
             bro.apellido
         )
         body.put(
-            "apellido",
-            bro.apellido
-        )
-        body.put(
             "password",
-            bro.apellido
+            bro.password
         )
         body.put(
             "email",
@@ -247,13 +243,12 @@ class Signup : AppCompatActivity() {
         )
         val listener = Response.Listener<JSONObject> { resulttado ->
             Log.d("Insercion", "USUARIO INSERTADO")
-            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             Toast.makeText(this,getString(R.string.exito_registro),Toast.LENGTH_SHORT).show()
         }
-        val errorListener = Response.ErrorListener { error -> Toast.makeText(this, "Error al enviar datos: ${error.message}", Toast.LENGTH_SHORT).show() }
+        val errorListener = Response.ErrorListener { error -> Toast.makeText(this, getString(R.string.error_registro)+" "+error.message, Toast.LENGTH_SHORT).show() }
         val request = JsonObjectRequest(metodo, url, body, listener, errorListener)
         queue.add(request)
     }

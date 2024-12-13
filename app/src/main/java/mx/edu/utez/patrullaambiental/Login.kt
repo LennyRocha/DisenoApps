@@ -7,44 +7,64 @@ import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.material.snackbar.Snackbar
 import mx.edu.utez.patrullaambiental.adapter.Usuario
 import mx.edu.utez.patrullaambiental.databinding.ActivityLoginBinding
+import org.json.JSONArray
 import org.json.JSONObject
+import java.sql.Date
+import java.text.SimpleDateFormat
 import java.util.Locale
 
 class Login : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //setContentView(R.layout.activity_login)
 
         val sharedPreferences = getSharedPreferences("archivo", Context.MODE_PRIVATE)
 
         binding.btnAcceder.setOnClickListener{
-            if(binding.edtUsuario.text.toString().isNotEmpty() && binding.edtContra.text.toString().isNotEmpty()){
-                if(binding.edtUsuario.text.toString().toLowerCase(Locale.ROOT) == "leo" && binding.edtContra.text.toString() == "123"){
-                    with(sharedPreferences.edit()){
-                        putString("usuario",binding.edtUsuario.text.toString())
-                        commit()
+            if (binding.edtUsuario.text.toString().isNotEmpty() && binding.edtContra.text.toString().isNotEmpty()) {
+                obtenerUsuario(binding.edtUsuario.text.toString(), binding.edtContra.text.toString()) { user ->
+                    if (user != null) {
+                        // Validación dentro del callback
+                        if (binding.edtUsuario.text.toString().toLowerCase(Locale.ROOT) == user.email &&
+                            binding.edtContra.text.toString() == user.password) {
+
+                            with(sharedPreferences.edit()) {
+                                putInt("id", user.Id)
+                                putString("usuario", user.nombre)
+                                putString("apellido", user.apellido)
+                                putString("password", user.password)
+                                putString("email", user.email)
+                                putString("estado", user.estado)
+                                putString("fotoP", user.imagen)
+                                commit()
+                            }
+                            val intent = Intent(this@Login, Inicio::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        } else if (binding.edtUsuario.text.toString().toLowerCase(Locale.ROOT) != user.email) {
+                            Toast.makeText(this@Login, getString(R.string.error_login), Toast.LENGTH_SHORT).show()
+                            binding.edtUsuario.error = getString(R.string.error_name)
+                        } else if (binding.edtContra.text.toString().toLowerCase(Locale.ROOT) != user.password) {
+                            Toast.makeText(this@Login, getString(R.string.error_login), Toast.LENGTH_SHORT).show()
+                            binding.edtContra.error = getString(R.string.error_pass)
+                        }
+                    } else {
+                        Toast.makeText(this, getString(R.string.error_login), Toast.LENGTH_SHORT).show()
                     }
-                    val intent = Intent(this@Login, Inicio::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                }else if (binding.edtUsuario.text.toString().toLowerCase(Locale.ROOT) != "leo"){
-                    Toast.makeText(this@Login,getString(R.string.error_login), Toast.LENGTH_SHORT).show()
-                    binding.edtUsuario.error = getString(R.string.error_name)
                 }
-                else if (binding.edtContra.text.toString().toLowerCase(Locale.ROOT) != "123"){
-                    Toast.makeText(this@Login,getString(R.string.error_login), Toast.LENGTH_SHORT).show()
-                    binding.edtContra.error = getString(R.string.error_pass)
-                }
-            }else{
-                Toast.makeText(this@Login,getString(R.string.empty_login), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@Login, getString(R.string.empty_login), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -55,54 +75,58 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun obtenerUsuario() {
-        Log.d("Login", "Botón clickeado")
-        val nombre = binding.edtUsuario.text.toString()
-        val contra = binding.edtContra.text.toString()
+    fun obtenerUsuario(correo : String, contra : String,  onResult: (Usuario?) -> Unit) {
+        val queue = Volley.newRequestQueue(this)
 
-        if (nombre.isNotEmpty() && contra.isNotEmpty()) {
-            val url = "http://192.168.0.166:8080/Admin/Utodos"
-            val metodo = Request.Method.GET
+        val url = "http://192.168.1.67:8080/Admin/Login"
 
-            val listener = Response.Listener<JSONObject> { response ->
-                Log.d("Listener", "Se realiza la petición")
-                val responseUsuario = response.getJSONObject("responseUsuario")
-                val arreglo = responseUsuario.getJSONArray("usuario")
-                val usuarios = mutableListOf<Usuario>()
-                usuarios.clear()
-                for (i in 0 until arreglo.length()) {
-                    val usuario = Usuario(
-                        arreglo.getJSONObject(i).getInt("id"),
-                        arreglo.getJSONObject(i).getString("nombre"),
-                        arreglo.getJSONObject(i).getString("apellido"),
-                        arreglo.getJSONObject(i).getString("password"),
-                        arreglo.getJSONObject(i).getString("email"),
-                        arreglo.getJSONObject(i).getString("estado"),
-                        arreglo.getJSONObject(i).getString("fotoP"),
-                    )
-                    usuarios.add(usuario)
+        val metodo = Request.Method.POST
 
-                    //val base64Image = Base64.encodeToString(byteArray, Base64.DEFAULT)
-                }
+        val body = JSONObject()
 
-                val usuarioEncontrado = usuarios.find {
-                    it.nombre.equals(nombre, ignoreCase = true) && it.password == contra
-                }
+        println(correo+" "+contra)
 
-                if (usuarioEncontrado != null) {
-                    Snackbar.make(
-                        binding.root,
-                        "Bienvenido, ${usuarioEncontrado.nombre}",
-                        Snackbar.LENGTH_LONG
-                    ).show()
+        body.put("email", correo)
 
-                    val intent = Intent(this@Login, Inicio::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
-                }
+        body.put("password", contra)
 
+        println(body.getString("email"))
+
+        val listener = Response.Listener<JSONObject> { resultado ->
+            try {
+                val responseRest = resultado.getJSONObject("responseUsuario").getJSONArray("usuario").getJSONObject(0)
+                val name = responseRest.getString("nombre")
+                val apellid = responseRest.getString("apellido")
+                val pass = responseRest.getString("password")
+                val foto = responseRest.getString("fotoP")
+                val correito = responseRest.getString("email")
+                val estado = responseRest.getString("estado")
+                val id = responseRest.getString("id").toInt()
+
+                val usuario = Usuario(
+                    id,
+                    name,
+                    apellid,
+                    pass,
+                    correito,
+                    estado,
+                    foto
+                )
+                onResult(usuario) // Devuelve el usuario al callback
+            } catch (e: Exception) {
+                e.printStackTrace()
+                onResult(null) // Devuelve null si algo falla
             }
         }
+
+        val errorListener = Response.ErrorListener {
+            error ->
+            Toast.makeText(this, getString(R.string.err_500)+" "+error.message, Toast.LENGTH_SHORT).show()
+            println(error.message)
+        }
+
+        val request = JsonObjectRequest(metodo,url,body,listener,errorListener)
+
+        queue.add(request)
     }
 }
