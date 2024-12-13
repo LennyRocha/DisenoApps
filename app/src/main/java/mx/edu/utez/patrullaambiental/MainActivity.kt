@@ -41,8 +41,6 @@ class MainActivity : AppCompatActivity() {
             val mode = if (isDarkModeEnabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
             AppCompatDelegate.setDefaultNightMode(mode)
 
-            println("Eso "+isDarkModeEnabled)
-
             // Leer configuración de idioma y establecerlo
             val idioma = sharedPreferences.getString("Language", "es")
             val locale = Locale(idioma ?: "es")

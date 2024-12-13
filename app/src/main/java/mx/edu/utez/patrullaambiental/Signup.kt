@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Base64
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -127,14 +128,14 @@ class Signup : AppCompatActivity() {
 
             if(nombre.isNotEmpty()&&apellido.isNotEmpty()&&correo.isNotEmpty()&&contrasena.isNotEmpty()&&confirmarContra.isNotEmpty()){
                 if(contrasena.equals(confirmarContra)){
-                    val nuevoUsu = Usuario(1,nombre,apellido,correo,contrasena,estado)
-                    registrarUsuario(binding.imgPerfil,nuevoUsu)
+                    val nuevoUsu = Usuario(1,nombre,apellido,correo,contrasena,estado,CrearBase64(binding.imgPerfil))
+                    registrarConVolley(nuevoUsu)
                 }else{
-                    Toast.makeText(this,"Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,getString(R.string.error_confirm_pass), Toast.LENGTH_SHORT).show()
                 }
 
             }else{
-                Toast.makeText(this,"Llena todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,getString(R.string.empty_login), Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -196,39 +197,64 @@ class Signup : AppCompatActivity() {
         }
     }
 
-    private fun registrarUsuario(imageView: ImageView, bro: Usuario) {
-        val url = "http://192.168.0.166:8080/Admin/UCrear"
-
-        val drawable = imageView.drawable as BitmapDrawable
+    fun CrearBase64(img : ImageView) : String{
+        val drawable = img.drawable as BitmapDrawable
         val bitmap = drawable.bitmap
         val outputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
         val bytes = outputStream.toByteArray()
 
-        val params = mapOf(
-            "nombre" to bro.nombre,
-            "apellido" to bro.apellido,
-            "password" to bro.password,
-            "email" to bro.email,
-            "estado" to bro.estado
+        println(bytes.toString())
+        val base64String = Base64.encodeToString(bytes, Base64.DEFAULT)
+        println(base64String)
+
+        return base64String
+    }
+
+    fun registrarConVolley(bro: Usuario){
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://192.168.1.67:8080/Admin/UCrear"
+        val metodo = Request.Method.POST
+        val body  = JSONObject()
+        body.put(
+            "nombre",
+            bro.nombre
         )
-
-
-        val multipartRequest = MultipartRequest(
-            url,
-            bytes,
-            params,
-            { resultado ->
-                Log.d("Insercion", "USUARIO INSERTADO")
-                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, Login::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-            }
-        ) { error ->
-            Toast.makeText(this, "Error al enviar datos: ${error.message}", Toast.LENGTH_SHORT).show()
+        body.put(
+            "apellido",
+            bro.apellido
+        )
+        body.put(
+            "apellido",
+            bro.apellido
+        )
+        body.put(
+            "password",
+            bro.apellido
+        )
+        body.put(
+            "email",
+            bro.email
+        )
+        body.put(
+            "estado",
+            bro.estado
+        )
+        body.put(
+            "fotoP",
+            bro.imagen
+        )
+        val listener = Response.Listener<JSONObject> { resulttado ->
+            Log.d("Insercion", "USUARIO INSERTADO")
+            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Login::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            Toast.makeText(this,getString(R.string.exito_registro),Toast.LENGTH_SHORT).show()
         }
-
-        queue.add(multipartRequest)
+        val errorListener = Response.ErrorListener { error -> Toast.makeText(this, "Error al enviar datos: ${error.message}", Toast.LENGTH_SHORT).show() }
+        val request = JsonObjectRequest(metodo, url, body, listener, errorListener)
+        queue.add(request)
     }
 }

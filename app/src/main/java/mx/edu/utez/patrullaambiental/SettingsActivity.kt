@@ -99,18 +99,6 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleTheme(isDarkMode: Boolean) {
-        val newTheme = if (isDarkMode) {
-            AppCompatDelegate.MODE_NIGHT_YES
-        } else {
-            AppCompatDelegate.MODE_NIGHT_NO
-        }
-        AppCompatDelegate.setDefaultNightMode(newTheme)
-        sharedPreferences.edit().putBoolean("DarkMode", isDarkMode).apply()
-        println(isDarkMode)
-        recreate()
-    }
-
     fun setDarkMode(enabled: Boolean) {
         // Guardar el estado del modo oscuro en SharedPreferences
         val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
@@ -121,7 +109,6 @@ class SettingsActivity : AppCompatActivity() {
         // Aplicar el tema
         val mode = if (enabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
         AppCompatDelegate.setDefaultNightMode(mode)
-        println("si"+enabled)
     }
 
 

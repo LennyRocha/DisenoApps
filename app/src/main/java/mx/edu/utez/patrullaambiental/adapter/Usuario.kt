@@ -6,5 +6,6 @@ data class Usuario(
     val apellido: String,
     val password: String,
     val email: String,
-    val estado: String
+    val estado: String,
+    val imagen : String
 )

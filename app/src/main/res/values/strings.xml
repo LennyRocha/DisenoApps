@@ -12,6 +12,7 @@
     <string name="error_login">El usuario y/o contraseña no son correctos</string>
     <string name="error_name">Usuario no encontrado</string>
     <string name="error_pass">Contraseña incorrecta</string>
+    <string name="error_confirm_pass">Las contraseñas no coinciden</string>
     <string name="empty_login">Rellena todos los campos primero</string>
 
     <string name="item1">Inicio</string>
@@ -75,6 +76,7 @@
     <string name="gal">Galería</string>
 
     <string name="no_nums">No se admiten números</string>
+    <string name="exito_registro">Registro exitoso</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
