@@ -88,5 +88,8 @@
     <string name="no_nums">Numbers are not supported</string>
     <string name="exito_registro">Succesfull registration</string>
     <string name="exito_put">Succesfull update</string>
-    <string name="error_registro">Error registrering:</string>
+    <string name="error_registro">Error registering:</string>
+
+    <string name="hintDescripcion">Description report</string>
+    <string name="hintTitulo">Title report</string>
 </resources>

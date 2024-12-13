@@ -60,6 +60,8 @@ class Inicio : AppCompatActivity() {
                     true
                 }
                 else -> false
+
+
             }
         }
 
@@ -119,6 +121,12 @@ class Inicio : AppCompatActivity() {
                 val intent = Intent(this@Inicio,SettingsActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
+            }
+            R.id.mainMenu1 ->{
+                val intent = Intent(this@Inicio,FormularioReporte::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+
             }
         }
         return super.onOptionsItemSelected(item)

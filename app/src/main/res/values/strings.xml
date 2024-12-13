@@ -88,4 +88,6 @@
     <string name="exito_registro">Registro exitoso</string>
     <string name="exito_put">Actualización exitosa</string>
     <string name="error_registro">Error al registrar:</string>
+    <string name="hintDescripcion">Descripción de reporte</string>
+    <string name="hintTitulo">Titulo de reporte</string>
 </resources>

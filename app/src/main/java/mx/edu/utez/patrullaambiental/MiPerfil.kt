@@ -199,7 +199,7 @@ class MiPerfil : AppCompatActivity() {
 
     fun actualizarPerfil(bro : Usuario){
         val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.1.67:8080/Usuario/UActualizar/${bro.Id}"
+        val url = "http://192.168.111.81:8080/Usuario/UActualizar/${bro.Id}"
         val metodo = Request.Method.PUT
         val body  = JSONObject()
         body.put(

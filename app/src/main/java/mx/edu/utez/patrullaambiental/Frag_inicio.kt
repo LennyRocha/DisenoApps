@@ -39,6 +39,11 @@ class Frag_inicio : Fragment() {
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 
+        binding.mainMenu1.setOnClickListener {
+            val intent = Intent(requireActivity(), FormularioReporte::class.java)
+            startActivity(intent)
+        }
+
         binding.mainMenu3.setOnClickListener {
             val intent = Intent(requireActivity(), DocumentView::class.java)
             startActivity(intent)
