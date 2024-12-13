@@ -39,7 +39,7 @@ class Frag_inicio : Fragment() {
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
 
-        binding.mainMenu4.setOnClickListener {
+        binding.mainMenu2.setOnClickListener {
             val intent = Intent(requireActivity(), MisReportes::class.java)
             startActivity(intent)
         }

@@ -49,7 +49,7 @@ class MisReportes : AppCompatActivity() {
     fun cargarReportes(){
         val queue = Volley.newRequestQueue(this)
 
-        val url = "http://192.168.1.67:8080/Admin/Rtodos"
+        val url = "http://192.168.111.81:8080/Admin/Rtodos"
 
         val metodo = Request.Method.GET
 
