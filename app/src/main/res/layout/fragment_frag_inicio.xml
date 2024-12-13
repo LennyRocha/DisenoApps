@@ -43,7 +43,7 @@
                 android:layout_marginBottom="30dp"
                 android:fontFamily="@font/sour_gummy_extra_bold"
                 android:gravity="center"
-                android:hint="@string/hello_blank_fragment"
+                android:hint="@string/hola_hint"
                 android:includeFontPadding="true"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="34sp"

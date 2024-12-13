@@ -199,8 +199,8 @@ class MiPerfil : AppCompatActivity() {
 
     fun actualizarPerfil(bro : Usuario){
         val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.1.67:8080/UActualizar/${bro.Id}"
-        val metodo = Request.Method.POST
+        val url = "http://192.168.1.67:8080/Usuario/UActualizar/${bro.Id}"
+        val metodo = Request.Method.PUT
         val body  = JSONObject()
         body.put(
             "nombre",
@@ -227,11 +227,15 @@ class MiPerfil : AppCompatActivity() {
             bro.imagen
         )
         val listener = Response.Listener<JSONObject> { resulttado ->
+            val sharedP = getSharedPreferences("archivo", Context.MODE_PRIVATE)
             Log.d("Insercion", "USUARIO INSERTADO")
-            val intent = Intent(this, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-            Toast.makeText(this,getString(R.string.exito_registro), Toast.LENGTH_SHORT).show()
+            with(sharedP.edit()) {
+                putString("usuario", bro.nombre)
+                putString("apellido", bro.apellido)
+                commit()
+            }
+            recreate()
+            Toast.makeText(this,getString(R.string.exito_put),Toast.LENGTH_SHORT).show()
         }
         val errorListener = Response.ErrorListener { error -> Toast.makeText(this, getString(R.string.error_registro)+" "+error.message, Toast.LENGTH_SHORT).show() }
         val request = JsonObjectRequest(metodo, url, body, listener, errorListener)
@@ -259,9 +263,7 @@ class MiPerfil : AppCompatActivity() {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
         val bytes = outputStream.toByteArray()
 
-        println(bytes.toString())
         val base64String = Base64.encodeToString(bytes, Base64.DEFAULT)
-        println(base64String)
 
         return base64String
     }
