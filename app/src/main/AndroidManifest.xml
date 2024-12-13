@@ -16,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PatrullaAmbiental"
         tools:targetApi="34">
+        <provider
+            android:authorities="mx.edu.utez.patrullaambiental"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths"/>
+        </provider>
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />

@@ -51,7 +51,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.switchMode.isChecked = sharedPreferences.getBoolean("DarkMode", false)
 
         binding.switchMode.setOnCheckedChangeListener { _, isChecked ->
-            toggleTheme(isChecked)
+            setDarkMode(isChecked)
         }
 
         binding.radGru.setOnCheckedChangeListener { group, checkedId ->
@@ -107,8 +107,23 @@ class SettingsActivity : AppCompatActivity() {
         }
         AppCompatDelegate.setDefaultNightMode(newTheme)
         sharedPreferences.edit().putBoolean("DarkMode", isDarkMode).apply()
+        println(isDarkMode)
         recreate()
     }
+
+    fun setDarkMode(enabled: Boolean) {
+        // Guardar el estado del modo oscuro en SharedPreferences
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("DarkMode", enabled)
+        editor.apply()
+
+        // Aplicar el tema
+        val mode = if (enabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+        AppCompatDelegate.setDefaultNightMode(mode)
+        println("si"+enabled)
+    }
+
 
     private fun changeLanguage(language: String) {
         val locale = Locale(language)

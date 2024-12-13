@@ -1,34 +1,68 @@
 package mx.edu.utez.patrullaambiental
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.Rect
-import android.graphics.RectF
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.android.volley.RequestQueue
+import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 import mx.edu.utez.patrullaambiental.databinding.ActivityInicioBinding
 import mx.edu.utez.patrullaambiental.databinding.ActivityMiPerfilBinding
+import java.io.File
+import java.util.UUID
 
 class MiPerfil : AppCompatActivity() {
     private lateinit var binding : ActivityMiPerfilBinding
+    private lateinit var photo : File
+    private lateinit var queue : RequestQueue
+
+    private val cameraLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.TakePicture()
+        ){ result ->
+            if(result){
+                Glide.with(this)
+                    .load(photo.toUri())
+                    .into(binding.imgPerfil)
+                //actualizarPerfil(photo.toUri())
+            }
+        }
+
+    private val galleryLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.GetContent()
+        ){ result ->
+            if(result != null){
+                Glide.with(this)
+                    .load(result)
+                    .into(binding.imgPerfil)
+                //actualizarPerfila(result)
+            }
+        }
+
+    private fun createBlankTempFile() : File{
+        val tempFolder = File(applicationContext.filesDir,"photos")
+        tempFolder.deleteRecursively()  // Eliminar contenido previo
+        tempFolder.mkdir()  // Crear nuevo directorio
+        return File(tempFolder,"tempPhoto${UUID.randomUUID()}.jpeg")  // Crear el archivo con un nombre único
+    }
+
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +85,39 @@ class MiPerfil : AppCompatActivity() {
         }
 
         binding.btnCambiaFoto.setOnClickListener {
-            val snack =
-                Snackbar.make(binding.main, "Funcionalidad en construcción...", Snackbar.LENGTH_SHORT)
-            snack.setAction("Aceptar") {
-                snack.dismiss()
+            // Crear el BottomSheetDialog
+            val bottomSheetDialog = BottomSheetDialog(this)
+            val view = layoutInflater.inflate(R.layout.menu_foto_perfil, null)
+
+            // Configurar las opciones del menú
+            val btnCameraVista = view.findViewById<ImageButton>(R.id.btnCamara1)
+            val btnGalleryVista = view.findViewById<ImageButton>(R.id.btnGaleria1)
+            val cerrarBottomSheet = view.findViewById<ImageButton>(R.id.btnCerrarMenucito)
+
+            btnCameraVista.setOnClickListener {
+                // Acción para abrir la cámara
+                photo = createBlankTempFile()  // Ahora se inicializa primero
+                val uri = FileProvider.getUriForFile(
+                    this,
+                    "mx.edu.utez.patrullaambiental",  // Asegúrate de usar tu package name correcto
+                    photo
+                )
+                cameraLauncher.launch(uri)
+                bottomSheetDialog.dismiss()
             }
-            snack.show()
+
+            btnGalleryVista.setOnClickListener {
+                // Acción para abrir la galería
+                galleryLauncher.launch("image/*")
+                bottomSheetDialog.dismiss()
+            }
+
+            cerrarBottomSheet.setOnClickListener {
+                bottomSheetDialog.dismiss()
+            }
+
+            bottomSheetDialog.setContentView(view)
+            bottomSheetDialog.show()
         }
     }
 
@@ -71,5 +132,9 @@ class MiPerfil : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    fun actualizarPerfil(uriel : Uri){
+        //
     }
 }
