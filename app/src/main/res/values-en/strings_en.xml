@@ -89,4 +89,9 @@
     <string name="exito_registro">Succesfull registration</string>
     <string name="exito_put">Succesfull update</string>
     <string name="error_registro">Error registrering:</string>
+
+    <string name="mnu_reps">My reports</string>
+    <string name="del_rep">¿Delete this report?</string>
+    <string name="del_exito">Report deleted</string>
+    <string name="del_fallo">Report not deleted</string>
 </resources>

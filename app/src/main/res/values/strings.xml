@@ -88,4 +88,11 @@
     <string name="exito_registro">Registro exitoso</string>
     <string name="exito_put">Actualización exitosa</string>
     <string name="error_registro">Error al registrar:</string>
+
+    <string name="mnu_reps">Mis reportes</string>
+    <string name="del_rep">¿Eliminar este reporte?</string>
+    <string name="del_exito">Reporte eliminado</string>
+    <string name="del_fallo">Reporte no eliminado</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
