@@ -48,7 +48,11 @@
     <string name="reintenta">Reintentar</string>
 
     <string name="logut_pregunta">¿Cerrar sesión?</string>
-    <string name="logut_body">"Estas a punto de cerrar sesión, \n ¿Deseas continuar?"</string>
+    <string name="logut_body">Estas a punto de cerrar sesión, \n ¿Deseas continuar?</string>
+
+    <string name="put_pregunta">¡Confirmar cambios!</string>
+    <string name="put_body">¿Deseas actualizar tu información?</string>
+
     <string name="si">Si</string>
     <string name="no">No</string>
 
