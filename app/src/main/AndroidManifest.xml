@@ -17,6 +17,9 @@
         android:theme="@style/Theme.PatrullaAmbiental"
         tools:targetApi="34">
         <activity
+            android:name=".MostrarReportes"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
