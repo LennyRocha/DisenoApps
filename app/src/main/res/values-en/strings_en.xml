@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Patrulla Ambiental</string>
+    <string name="app_name_spaced">Patrulla Ambiental</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="inicioSes">LOG-IN</string>
+    <string name="usuario">User</string>
+    <string name="contra">Password</string>
+    <string name="acceder">Access</string>
+    <string name="registrarme">Sign-up</string>
+    <string name="bienve">Welcome</string>
+
+    <string name="err_500">Something went wrong, try again</string>
+    <string name="error_login">User and/or password aren\'t correct</string>
+    <string name="error_name">User not found</string>
+    <string name="error_pass">Wrong password</string>
+    <string name="error_confirm_pass">Passwords doesn\'t match</string>
+    <string name="empty_login">Fill all the data fields first</string>
+
+    <string name="item1">Start</string>
+    <string name="item2">Messages</string>
+    <string name="item3">Map</string>
+    <string name="item4">News</string>
+
+    <string name="itemTop1">My profile</string>
+    <string name="itemTop2">Settings</string>
+    <string name="itemTop3">Log-out</string>
+
+    <string name="nombre">Name</string>
+    <string name="apellido">Last name</string>
+    <string name="correo">Email</string>
+    <string name="camFoto">Change photo</string>
+
+    <string name="miPer">My profile</string>
+
+    <string name="detallesReg">Register summary</string>
+    <string name="confirmReg">Confirm password</string>
+    <string name="recordarReg">Remind me</string>
+    <string name="inicioReg">¡REGISTER NOW!</string>
+
+    <string name="hola_hint">WELCOME USERNAME</string>
+
+    <string name="main_menu_1">New Report</string>
+    <string name="main_menu_2">My Reports</string>
+    <string name="main_menu_3">Environment rules</string>
+    <string name="main_menu_4">Evidences</string>
+    <string name="main_menu_5">UTEZ green bulletin</string>
+    <string name="main_menu_6">Environmment education</string>
+
+    <string name="noInternet">¡No internet connection, try again!</string>
+    <string name="reintenta">Retry</string>
+
+    <string name="logut_pregunta">¿Want to leave?</string>
+    <string name="logut_body">You\'re about to log-out, \n ¿Would you like to continue?</string>
+
+    <string name="put_pregunta">¡Confirm changes!</string>
+    <string name="put_body">¿Would you like to update your information?</string>
+
+    <string name="no_wifi">¡Internet connection has been lost!</string>
+    <string name="si_wifi">¡Internet connection has been restored!</string>
+
+    <string name="no_reports">¡No reports availables!</string>
+
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+
+    <string name="settingsTitle">Settings</string>
+    <string name="temas">Appearance &amp; Themes</string>
+    <string name="temaClaro">White mode</string>
+    <string name="temaOscuro">Dark mode</string>
+    <string name="lenguajes">Languages</string>
+    <string name="lenguajeEsp">Spanish</string>
+    <string name="lenguajeEng">English</string>
+    <string name="lenguajeFre">French</string>
+
+    <string name="newPass">Change my password</string>
+    <string name="newPassText">New password</string>
+    <string name="guardar">Save</string>
+    <string name="cancelar">Cancel</string>
+    <string name="succesSave">¡Password updated!</string>
+    <string name="preferences">Preferences</string>
+    <string name="ringtone">Set notification ringtone</string>
+
+    <string name="camaraPregunta">New profile phot</string>
+    <string name="cam">Camera</string>
+    <string name="gal">Gallery</string>
+
+    <string name="no_nums">Numbers are not supported</string>
+    <string name="exito_registro">Succesfull registration</string>
+    <string name="exito_put">Succesfull update</string>
+    <string name="error_registro">Error registrering:</string>
+</resources>

@@ -42,8 +42,9 @@ class MainActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(mode)
 
             // Leer configuración de idioma y establecerlo
-            val idioma = sharedPreferences.getString("Language", "es")
+            val idioma = darkPreferences.getString("Language", "es")
             val locale = Locale(idioma ?: "es")
+            println(locale)
             Locale.setDefault(locale)
             val config = resources.configuration
             config.setLocale(locale)
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, Inicio::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
-                Toast.makeText(this@MainActivity, "Bienvenido $usuario", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.bienve)+" "+usuario, Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this@MainActivity, Login::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

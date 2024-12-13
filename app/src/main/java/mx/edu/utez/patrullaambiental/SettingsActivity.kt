@@ -22,7 +22,6 @@ import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +38,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
 
         val savedLanguage = sharedPreferences.getString("Language", "es")
         when (savedLanguage) {
@@ -117,6 +116,7 @@ class SettingsActivity : AppCompatActivity() {
         Locale.setDefault(locale)
         val config = resources.configuration
         config.setLocale(locale)
+        println(language)
         resources.updateConfiguration(config, resources.displayMetrics)
         recreate() // Reinicia la actividad
     }
