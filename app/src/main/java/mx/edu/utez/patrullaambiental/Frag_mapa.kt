@@ -67,8 +67,6 @@ class Frag_mapa : Fragment(), LocationListener {
             setupMap()
         }
 
-        cargarReportes()
-
         binding.rvReportees.visibility = View.INVISIBLE
 
         binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
@@ -77,6 +75,7 @@ class Frag_mapa : Fragment(), LocationListener {
 
             binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
             if (binding.rvReportees.visibility == View.VISIBLE) {
+                cargarReportes()
                 binding.rvReportees.animate()
                     .alpha(0f)
                     .setDuration(500)
@@ -155,6 +154,7 @@ class Frag_mapa : Fragment(), LocationListener {
 
                     val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toDouble(),latitud.toDouble())
                     println(usuario)
+                    println(id)
 
                     lista.add(rep)
                 }
@@ -165,7 +165,7 @@ class Frag_mapa : Fragment(), LocationListener {
 
                 val reportes : List<Reportito> = lista
 
-                val adaptador = ReportitoAdapter(reportes)
+                val adaptador = ReportitoAdapter(lista)
                 adaptador.onItemClick = { repo ->
                     val latLng = LatLng(repo.latitud, repo.longitud)
                     googleMap.addMarker(MarkerOptions().position(latLng).title(repo.nombre_usuario))

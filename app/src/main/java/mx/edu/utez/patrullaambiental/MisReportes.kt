@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.Volley
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import mx.edu.utez.patrullaambiental.adapter.ReporteAdapter
 import mx.edu.utez.patrullaambiental.adapter.ReportitoAdapter
 import mx.edu.utez.patrullaambiental.databinding.ActivityMisReportesBinding
 import mx.edu.utez.patrullaambiental.model.Reportito
@@ -83,7 +85,7 @@ class MisReportes : AppCompatActivity() {
 
                 val reportes : List<Reportito> = lista
 
-                val adaptador = ReportitoAdapter(reportes)
+                val adaptador = ReporteAdapter(reportes)
                 adaptador.onItemClick = { repo ->
                     val view = layoutInflater.inflate(R.layout.layout_reportes, null)
 
@@ -146,5 +148,18 @@ class MisReportes : AppCompatActivity() {
         val errorListener = Response.ErrorListener { error -> Toast.makeText(this, getString(R.string.del_fallo)+" "+error.message, Toast.LENGTH_SHORT).show() }
         val request = JsonObjectRequest(metodo, url, body, listener, errorListener)
         queue.add(request)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Manejar la acción de la flecha aquí
+                val intent = Intent(this@MisReportes,Inicio::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
