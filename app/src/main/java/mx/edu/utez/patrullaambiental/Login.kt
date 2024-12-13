@@ -3,22 +3,15 @@ package mx.edu.utez.patrullaambiental
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.material.snackbar.Snackbar
-import mx.edu.utez.patrullaambiental.adapter.Usuario
+import mx.edu.utez.patrullaambiental.model.Usuario
 import mx.edu.utez.patrullaambiental.databinding.ActivityLoginBinding
-import org.json.JSONArray
 import org.json.JSONObject
-import java.sql.Date
-import java.text.SimpleDateFormat
 import java.util.Locale
 
 class Login : AppCompatActivity() {
@@ -84,13 +77,9 @@ class Login : AppCompatActivity() {
 
         val body = JSONObject()
 
-        println(correo+" "+contra)
-
         body.put("email", correo)
 
         body.put("password", contra)
-
-        println(body.getString("email"))
 
         val listener = Response.Listener<JSONObject> { resultado ->
             try {

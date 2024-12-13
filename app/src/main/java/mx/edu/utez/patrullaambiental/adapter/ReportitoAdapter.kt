@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import mx.edu.utez.patrullaambiental.databinding.LayoutReportesMapaBinding
 import mx.edu.utez.patrullaambiental.model.Reportito
+import mx.edu.utez.patrullaambiental.utils.loadBase64Image
 
 class ReportitoAdapter (var lista : List<Reportito>) :
     RecyclerView.Adapter<ReportitoAdapter.ViewHolder>() {
@@ -35,10 +36,12 @@ class ReportitoAdapter (var lista : List<Reportito>) :
         val reportito = lista[position]
         with(holder.binding) {
             txtUsuario.text = reportito.nombre_usuario
-            txtFecha.text = reportito.fecha.toString()
+            txtFecha.text = reportito.titulo
             txtLong.text = reportito.longitud.toString()
             txtLat.text = reportito.latitud.toString()
-            imgEvidencia.setImageResource(reportito.imagen)
+            txtIdRep.text = reportito.id.toString()
+            txtDescripcionRep.text = reportito.desc
+            loadBase64Image(reportito.imagen,imgEvidencia)
         }
 
         holder.itemView.setOnClickListener {

@@ -1,4 +1,4 @@
-package mx.edu.utez.patrullaambiental.adapter
+package mx.edu.utez.patrullaambiental.model
 
 data class Usuario(
     val Id: Int,

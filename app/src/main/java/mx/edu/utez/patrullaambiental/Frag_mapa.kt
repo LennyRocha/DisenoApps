@@ -2,7 +2,6 @@ package mx.edu.utez.patrullaambiental
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
@@ -16,8 +15,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -26,6 +28,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import mx.edu.utez.patrullaambiental.adapter.ReportitoAdapter
 import mx.edu.utez.patrullaambiental.databinding.FragmentFragMapaBinding
 import mx.edu.utez.patrullaambiental.model.Reportito
+import org.json.JSONObject
 import java.time.LocalDate
 
 /**
@@ -44,17 +47,6 @@ class Frag_mapa : Fragment(), LocationListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFragMapaBinding.inflate(inflater, container, false)
-
-        val sharedPreferences = requireActivity().getSharedPreferences("archivo", Context.MODE_PRIVATE)
-        val valor = sharedPreferences.getString("usuario", "#")
-
-        val lista = listOf(
-            Reportito(R.drawable.baseline_email_24, "Juan", LocalDate.now(), -99.2010277, 18.8497217)
-        )
-
-        val lista2 = listOf(
-            Reportito(R.drawable.baseline_email_24, "Joe", LocalDate.now(), -99.2008758, 18.8512434)
-        )
 
         locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
@@ -75,23 +67,14 @@ class Frag_mapa : Fragment(), LocationListener {
             setupMap()
         }
 
-        val adaptador = ReportitoAdapter(lista)
-        adaptador.onItemClick = { repo ->
-            val latLng = LatLng(repo.latitud, repo.longitud)
-            googleMap.addMarker(MarkerOptions().position(latLng).title(repo.nombre_usuario))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-            Toast.makeText(requireActivity(), "Hola", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.rvReportees.adapter = adaptador
-        binding.rvReportees.layoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        cargarReportes()
 
         binding.rvReportees.visibility = View.INVISIBLE
 
         binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
 
         binding.btnMostrar.setOnClickListener {
+
             binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
             if (binding.rvReportees.visibility == View.VISIBLE) {
                 binding.rvReportees.animate()
@@ -101,6 +84,7 @@ class Frag_mapa : Fragment(), LocationListener {
                         binding.rvReportees.visibility = View.GONE
                         binding.btnMostrar.setImageResource(android.R.drawable.ic_input_add)
                         binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
+                        googleMap.clear()
                     }
             } else {
                 binding.rvReportees.alpha = 0f
@@ -142,5 +126,70 @@ class Frag_mapa : Fragment(), LocationListener {
 
     override fun onLocationChanged(p0: Location) {
         Log.e("UBICACION", "LONGITUD: ${p0.longitude}, ALTITUD: ${p0.altitude} LATITUD: ${p0.latitude}")
+    }
+
+    fun cargarReportes(){
+        val queue = Volley.newRequestQueue(requireActivity())
+
+        val url = "http://192.168.1.67:8080/Admin/Rtodos"
+
+        val metodo = Request.Method.GET
+
+        val listener = Response.Listener<JSONObject> { resultado ->
+            try {
+                val responseRest = resultado.getJSONObject("responseReporte").getJSONArray("reporte")
+
+                val lista = mutableListOf<Reportito>()
+
+                for (i in 0 until responseRest.length()){
+                    val jsonReporte = responseRest.getJSONObject(i)
+
+                    val id = jsonReporte.getString("id")
+                    val titulo = jsonReporte.getString("titulo")
+                    val descripcion = jsonReporte.getString("descripcion")
+                    val usuario = jsonReporte.getJSONObject("usuario").getString("nombre")
+                    val estado = jsonReporte.getString("estado")
+                    val longitud = jsonReporte.getString("longitud")
+                    val latitud = jsonReporte.getString("latitud")
+                    val imagen = jsonReporte.getString("imagen")
+
+                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toDouble(),latitud.toDouble())
+                    println(usuario)
+
+                    lista.add(rep)
+                }
+
+                if(lista.isEmpty()){
+                    Toast.makeText(requireActivity(),getString(R.string.no_reports),Toast.LENGTH_SHORT).show()
+                }
+
+                val reportes : List<Reportito> = lista
+
+                val adaptador = ReportitoAdapter(reportes)
+                adaptador.onItemClick = { repo ->
+                    val latLng = LatLng(repo.latitud, repo.longitud)
+                    googleMap.addMarker(MarkerOptions().position(latLng).title(repo.nombre_usuario))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                    Toast.makeText(requireActivity(), "Hola "+repo.nombre_usuario, Toast.LENGTH_SHORT).show()
+                }
+
+                binding.rvReportees.adapter = adaptador
+                binding.rvReportees.layoutManager =
+                    LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        val errorListener = Response.ErrorListener {
+                error ->
+            Toast.makeText(requireActivity(), getString(R.string.err_500)+" "+error.message, Toast.LENGTH_SHORT).show()
+            println(error.message)
+        }
+
+        val request = JsonObjectRequest(metodo,url,null,listener,errorListener)
+
+        queue.add(request)
     }
 }

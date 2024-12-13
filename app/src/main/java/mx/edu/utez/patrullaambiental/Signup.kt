@@ -3,7 +3,6 @@ package mx.edu.utez.patrullaambiental
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,15 +12,12 @@ import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.net.toUri
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -29,10 +25,8 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.snackbar.Snackbar
-import mx.edu.utez.patrullaambiental.adapter.Usuario
+import mx.edu.utez.patrullaambiental.model.Usuario
 import mx.edu.utez.patrullaambiental.databinding.ActivitySignupBinding
-import mx.edu.utez.u2p2.model.MultipartRequest
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
 import java.io.File

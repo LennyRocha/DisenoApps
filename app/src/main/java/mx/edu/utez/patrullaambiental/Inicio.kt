@@ -2,6 +2,8 @@ package mx.edu.utez.patrullaambiental
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +18,7 @@ class Inicio : AppCompatActivity() {
     private val fragment1 = Frag_inicio()
     private val fragment2 = Frag_noticias()
     private val fragment3 = Frag_mapa()
+    private val fragment4 = Frag_no_internet()
     private lateinit var binding : ActivityInicioBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +47,14 @@ class Inicio : AppCompatActivity() {
                     true
                 }
                 R.id.item3 -> {
-                    loadFragment(fragment2)
+                    if (isInternetAvailable(this)) {
+                        loadFragment(fragment2)
+                    } else {
+                        loadFragment(fragment4) // Cargar el fragmento de sin conexión
+                    }
                     true
                 }
+
                 R.id.item2 -> {
                     loadFragment(fragment3)
                     true
@@ -59,7 +67,7 @@ class Inicio : AppCompatActivity() {
         loadFragment(fragment1)
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(binding.contenedor.id, fragment)
         transaction.commit()
@@ -115,4 +123,12 @@ class Inicio : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    fun isInternetAvailable(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
 }
