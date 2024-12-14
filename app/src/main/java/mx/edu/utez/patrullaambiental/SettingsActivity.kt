@@ -68,21 +68,6 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         val dialogView = layoutInflater.inflate(R.layout.layout_new_pass, null)
-        val caja = dialogView.findViewById<EditText>(R.id.edtActualizadorContra)
-
-        binding.txtCambiarContra.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(getString(R.string.newPassText))
-            builder.setIcon(R.drawable.logo_verde)
-            builder.setView(dialogView)
-            builder.setPositiveButton(getString(R.string.guardar)) { dialog, _ ->
-                Toast.makeText(this@SettingsActivity,getString(R.string.succesSave), Toast.LENGTH_SHORT).show()
-            }
-            builder.setNegativeButton(getString(R.string.cancelar)) { dialog, _ ->
-                dialog.cancel()
-            }
-            builder.show()
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
