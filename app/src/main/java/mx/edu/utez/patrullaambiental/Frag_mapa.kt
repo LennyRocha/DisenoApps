@@ -65,6 +65,7 @@ class Frag_mapa : Fragment(), LocationListener {
             )
         } else {
             setupMap()
+            cargarReportes()
         }
 
         binding.rvReportees.visibility = View.INVISIBLE
@@ -75,7 +76,6 @@ class Frag_mapa : Fragment(), LocationListener {
 
             binding.btnMostrar.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorAccent))
             if (binding.rvReportees.visibility == View.VISIBLE) {
-                cargarReportes()
                 binding.rvReportees.animate()
                     .alpha(0f)
                     .setDuration(500)
@@ -130,7 +130,7 @@ class Frag_mapa : Fragment(), LocationListener {
     fun cargarReportes(){
         val queue = Volley.newRequestQueue(requireActivity())
 
-        val url = "http://192.168.111.81:8080/Admin/Rtodos"
+        val url = "http://192.168.230.132:8080/Admin/Rtodos"
 
         val metodo = Request.Method.GET
 
@@ -161,11 +161,13 @@ class Frag_mapa : Fragment(), LocationListener {
 
                 if(lista.isEmpty()){
                     Toast.makeText(requireActivity(),getString(R.string.no_reports),Toast.LENGTH_SHORT).show()
+                }else {
+                    Log.d("RecyclerView", "Lista cargada con ${lista.size} elementos.")
                 }
 
                 val reportes : List<Reportito> = lista
 
-                val adaptador = ReportitoAdapter(lista)
+                val adaptador = ReportitoAdapter(reportes)
                 adaptador.onItemClick = { repo ->
                     val latLng = LatLng(repo.latitud, repo.longitud)
                     googleMap.addMarker(MarkerOptions().position(latLng).title(repo.nombre_usuario))

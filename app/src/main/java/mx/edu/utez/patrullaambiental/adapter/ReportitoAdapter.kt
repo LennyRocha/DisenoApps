@@ -44,6 +44,8 @@ class ReportitoAdapter (var lista : List<Reportito>) :
             loadBase64Image(reportito.imagen,imgEvidencia)
         }
 
+        println("hola")
+
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(reportito)
         }

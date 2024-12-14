@@ -222,7 +222,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/baseline_photo_library_24" />
+                        android:src="@drawable/baseline_school_24" />
 
                     <TextView
                         style="@style/font_bold"
@@ -230,7 +230,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/sour_gummy_expanded_extra_bold"
                         android:includeFontPadding="true"
-                        android:text="@string/main_menu_4"
+                        android:text="@string/main_menu_5"
                         android:textColor="?attr/colorOnBackground"
                         android:textStyle="bold" />
 

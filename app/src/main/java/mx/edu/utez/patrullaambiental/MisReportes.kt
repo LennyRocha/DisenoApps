@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -45,13 +46,17 @@ class MisReportes : AppCompatActivity() {
             //title = getString(R.string.miPer)
         }
 
+        val animation = AnimationUtils.loadAnimation(this, R.anim.entrada_cards)
+
+        binding.rvHistReps.startAnimation(animation)
+
         cargarReportes()
     }
 
     fun cargarReportes(){
         val queue = Volley.newRequestQueue(this)
 
-        val url = "http://192.168.111.81:8080/Admin/Rtodos"
+        val url = "http://192.168.230.132:8080/Admin/Rtodos"
 
         val metodo = Request.Method.GET
 
