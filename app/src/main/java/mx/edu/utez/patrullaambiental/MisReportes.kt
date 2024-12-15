@@ -43,44 +43,48 @@ class MisReportes : AppCompatActivity() {
         cargarReportes()
     }
 
-    fun cargarReportes(){
+    fun cargarReportes() {
         val queue = Volley.newRequestQueue(this)
-
         val url = "http://192.168.0.13:8080/Admin/Rtodos"
-
         val metodo = Request.Method.GET
 
         val listener = Response.Listener<JSONObject> { resultado ->
             try {
+                // Obtén el array de reportes desde el JSON
                 val responseRest = resultado.getJSONObject("responseReporte").getJSONArray("reporte")
 
                 val lista = mutableListOf<Reportito>()
 
-                for (i in 0 until responseRest.length()){
+                // Recorre cada reporte en el array
+                for (i in 0 until responseRest.length()) {
                     val jsonReporte = responseRest.getJSONObject(i)
 
-                    val id = jsonReporte.getString("id")
-                    val titulo = jsonReporte.getString("titulo")
-                    val descripcion = jsonReporte.getString("descripcion")
-                    val usuario = jsonReporte.getJSONObject("usuario").getString("nombre")
-                    val estado = jsonReporte.getString("estado")
-                    val longitud = jsonReporte.getString("longitud")
-                    val latitud = jsonReporte.getString("latitud")
-                    val imagen = jsonReporte.getString("imagen")
+                    // Obtén los valores de forma segura
+                    val id = jsonReporte.optInt("id", -1) // Valor predeterminado en caso de error
+                    val titulo = jsonReporte.optString("titulo", "Sin título")
+                    val descripcion = jsonReporte.optString("descripcion", "Sin descripción")
+                    val usuario = jsonReporte.optJSONObject("usuario")?.optString("nombre", "Anónimo") ?: "Anónimo"
+                    val estado = jsonReporte.optString("estado", "Desconocido")
+                    val longitud = jsonReporte.optString("longitud", "0.0").toFloatOrNull() ?: 0.0f
+                    val latitud = jsonReporte.optString("latitud", "0.0").toFloatOrNull() ?: 0.0f
+                    val imagen = jsonReporte.optString("imagen", "")
 
-                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toFloat(),latitud.toFloat())
-                    println(usuario)
-
-                    lista.add(rep)
+                    // Asegúrate de agregar solo reportes válidos
+                    if (id != -1) {
+                        val rep = Reportito(id, imagen, usuario, titulo, estado, descripcion, longitud, latitud)
+                        lista.add(rep)
+                    }
                 }
 
-                if(lista.isEmpty()){
-                    Toast.makeText(this,getString(R.string.no_reports), Toast.LENGTH_SHORT).show()
+                // Si no hay reportes en la lista
+                if (lista.isEmpty()) {
+                    Toast.makeText(this, getString(R.string.no_reports), Toast.LENGTH_SHORT).show()
                 }
 
-                val reportes : List<Reportito> = lista
-
+                // Configura el RecyclerView con la lista de reportes
+                val reportes: List<Reportito> = lista
                 val adaptador = ReporteAdapter(reportes)
+
                 adaptador.onItemClick = { repo ->
                     val view = layoutInflater.inflate(R.layout.layout_reportes, null)
 
@@ -89,7 +93,7 @@ class MisReportes : AppCompatActivity() {
                     val btnDel = view.findViewById<Button>(R.id.btnEliminarRep)
 
                     btnEdit.setOnClickListener {
-                        Toast.makeText(this,"Por terminar....",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Por terminar....", Toast.LENGTH_SHORT).show()
                     }
 
                     btnDel.setOnClickListener {
@@ -111,20 +115,22 @@ class MisReportes : AppCompatActivity() {
                     LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
             } catch (e: Exception) {
-                e.printStackTrace()
+                Log.e("MisReportes", "Error procesando el JSON", e)
+                Toast.makeText(this, "Error al cargar los reportes", Toast.LENGTH_SHORT).show()
             }
         }
 
-        val errorListener = Response.ErrorListener {
-                error ->
-            Toast.makeText(this, getString(R.string.err_500)+" "+error.message, Toast.LENGTH_SHORT).show()
-            println(error.message)
+        val errorListener = Response.ErrorListener { error ->
+            Log.e("MisReportes", "Error al obtener los reportes", error)
+            Toast.makeText(this, getString(R.string.err_500) + " " + error.message, Toast.LENGTH_SHORT).show()
         }
 
-        val request = JsonObjectRequest(metodo,url,null,listener,errorListener)
+        val request = JsonObjectRequest(metodo, url, null, listener, errorListener)
 
         queue.add(request)
     }
+
+
 
     fun deleteReport (id : Int){
         val queue = Volley.newRequestQueue(this)
