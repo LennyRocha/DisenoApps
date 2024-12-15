@@ -29,7 +29,6 @@ import mx.edu.utez.patrullaambiental.adapter.ReportitoAdapter
 import mx.edu.utez.patrullaambiental.databinding.FragmentFragMapaBinding
 import mx.edu.utez.patrullaambiental.model.Reportito
 import org.json.JSONObject
-import java.time.LocalDate
 
 /**
  * A simple [Fragment] subclass.
@@ -152,7 +151,7 @@ class Frag_mapa : Fragment(), LocationListener {
                     val latitud = jsonReporte.getString("latitud")
                     val imagen = jsonReporte.getString("imagen")
 
-                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toDouble(),latitud.toDouble())
+                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toFloat(),latitud.toFloat())
                     println(usuario)
                     println(id)
 
@@ -169,7 +168,7 @@ class Frag_mapa : Fragment(), LocationListener {
 
                 val adaptador = ReportitoAdapter(reportes)
                 adaptador.onItemClick = { repo ->
-                    val latLng = LatLng(repo.latitud, repo.longitud)
+                    val latLng = LatLng(repo.latitud.toDouble(), repo.longitud.toDouble())
                     googleMap.addMarker(MarkerOptions().position(latLng).title(repo.nombre_usuario))
                     googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
                     Toast.makeText(requireActivity(), "Hola "+repo.nombre_usuario, Toast.LENGTH_SHORT).show()

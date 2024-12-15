@@ -176,12 +176,12 @@ class RegistroReporte : AppCompatActivity(), LocationListener {
         }
     }
 
-    private fun registrarReporte(reporte: JSONObject) {
+    private fun registrarReporte(Reportito: JSONObject) {
         val url = "http://192.168.0.13:8080/Usuario/RCrear"
         val request = JsonObjectRequest(
             Request.Method.POST,
             url,
-            reporte,
+            Reportito,
             { response ->
                 Log.d("RegistroReporte", "Reporte registrado: $response")
                 Toast.makeText(this, "Reporte registrado con éxito", Toast.LENGTH_SHORT).show()

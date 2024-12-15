@@ -1,30 +1,20 @@
 package mx.edu.utez.patrullaambiental
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import mx.edu.utez.patrullaambiental.adapter.ReporteAdapter
-import mx.edu.utez.patrullaambiental.adapter.ReportitoAdapter
 import mx.edu.utez.patrullaambiental.databinding.ActivityMisReportesBinding
 import mx.edu.utez.patrullaambiental.model.Reportito
 import org.json.JSONObject
@@ -78,7 +68,7 @@ class MisReportes : AppCompatActivity() {
                     val latitud = jsonReporte.getString("latitud")
                     val imagen = jsonReporte.getString("imagen")
 
-                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toDouble(),latitud.toDouble())
+                    val rep = Reportito(id.toInt(),imagen,usuario,titulo,estado,descripcion,longitud.toFloat(),latitud.toFloat())
                     println(usuario)
 
                     lista.add(rep)
