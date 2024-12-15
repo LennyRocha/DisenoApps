@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
         <activity
+            android:name=".RegistroReporte"
+            android:exported="false" />
+        <activity
             android:name=".BoletinView"
             android:exported="false" />
         <activity

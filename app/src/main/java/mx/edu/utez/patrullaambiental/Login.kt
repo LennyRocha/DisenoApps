@@ -71,7 +71,7 @@ class Login : AppCompatActivity() {
     fun obtenerUsuario(correo : String, contra : String,  onResult: (Usuario?) -> Unit) {
         val queue = Volley.newRequestQueue(this)
 
-        val url = "http://192.168.230.132:8080/Admin/Login"
+        val url = "http://192.168.0.13:8080/Admin/Login"
 
         val metodo = Request.Method.POST
 
