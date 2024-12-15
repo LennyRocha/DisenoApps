@@ -200,7 +200,7 @@
                 android:drawableTint="?attr/colorAccent"
                 android:ems="10"
                 android:hint="@string/correo"
-                android:inputType="text" />
+                android:inputType="text|textEmailAddress" />
 
             <TextView
                 android:id="@+id/txtContraNueva"
@@ -238,34 +238,6 @@
                 android:ems="10"
                 android:hint="@string/confirmReg"
                 android:inputType="textPassword" />
-
-            <TextView
-                android:id="@+id/txtRolNuevo"
-                style="@style/font_bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:backgroundTint="?attr/colorAccent"
-                android:text="@string/rolReg"
-                android:textColor="?attr/colorOnBackground" />
-
-            <Spinner
-                android:id="@+id/spNewRol"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorSurface"
-                android:backgroundTint="?attr/colorAccent"
-                android:backgroundTintMode="src_atop"
-                android:foregroundTint="?attr/colorAccent" />
-
-            <CheckBox
-                android:id="@+id/cbRecordar"
-                style="@style/font_bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/recordarReg"
-                android:textColor="?attr/colorOnBackground" />
 
             <Button
                 android:id="@+id/btnRegistrame"

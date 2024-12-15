@@ -22,7 +22,6 @@ import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +38,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE)
 
         val savedLanguage = sharedPreferences.getString("Language", "es")
         when (savedLanguage) {
@@ -51,7 +50,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.switchMode.isChecked = sharedPreferences.getBoolean("DarkMode", false)
 
         binding.switchMode.setOnCheckedChangeListener { _, isChecked ->
-            toggleTheme(isChecked)
+            setDarkMode(isChecked)
         }
 
         binding.radGru.setOnCheckedChangeListener { group, checkedId ->
@@ -69,21 +68,6 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         val dialogView = layoutInflater.inflate(R.layout.layout_new_pass, null)
-        val caja = dialogView.findViewById<EditText>(R.id.edtActualizadorContra)
-
-        binding.txtCambiarContra.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle(getString(R.string.newPassText))
-            builder.setIcon(R.drawable.logo_verde)
-            builder.setView(dialogView)
-            builder.setPositiveButton(getString(R.string.guardar)) { dialog, _ ->
-                Toast.makeText(this@SettingsActivity,getString(R.string.succesSave), Toast.LENGTH_SHORT).show()
-            }
-            builder.setNegativeButton(getString(R.string.cancelar)) { dialog, _ ->
-                dialog.cancel()
-            }
-            builder.show()
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -99,22 +83,25 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleTheme(isDarkMode: Boolean) {
-        val newTheme = if (isDarkMode) {
-            AppCompatDelegate.MODE_NIGHT_YES
-        } else {
-            AppCompatDelegate.MODE_NIGHT_NO
-        }
-        AppCompatDelegate.setDefaultNightMode(newTheme)
-        sharedPreferences.edit().putBoolean("DarkMode", isDarkMode).apply()
-        recreate()
+    fun setDarkMode(enabled: Boolean) {
+        // Guardar el estado del modo oscuro en SharedPreferences
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("DarkMode", enabled)
+        editor.apply()
+
+        // Aplicar el tema
+        val mode = if (enabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+        AppCompatDelegate.setDefaultNightMode(mode)
     }
+
 
     private fun changeLanguage(language: String) {
         val locale = Locale(language)
         Locale.setDefault(locale)
         val config = resources.configuration
         config.setLocale(locale)
+        println(language)
         resources.updateConfiguration(config, resources.displayMetrics)
         recreate() // Reinicia la actividad
     }

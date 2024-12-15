@@ -43,7 +43,7 @@
                 android:layout_marginBottom="30dp"
                 android:fontFamily="@font/sour_gummy_extra_bold"
                 android:gravity="center"
-                android:hint="@string/hello_blank_fragment"
+                android:hint="@string/hola_hint"
                 android:includeFontPadding="true"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="34sp"
@@ -54,7 +54,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="wrap_content"
         app:behavior_overlapTop="16dp"
 
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -62,13 +62,14 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnCount="2"
-            android:rowCount="3">
+            android:columnCount="1"
+            android:rowCount="4"
+            android:useDefaultMargins="false">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/mainMenu1"
                 android:layout_width="wrap_content"
-                android:layout_height="175dp"
+                android:layout_height="150dp"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
                 android:layout_column="0"
@@ -111,10 +112,10 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/mainMenu2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_row="0"
+                android:layout_height="150dp"
+                android:layout_row="1"
                 android:layout_rowWeight="1"
-                android:layout_column="1"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
@@ -154,8 +155,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/mainMenu3"
                 android:layout_width="wrap_content"
-                android:layout_height="175dp"
-                android:layout_row="1"
+                android:layout_height="150dp"
+                android:layout_row="2"
                 android:layout_rowWeight="0"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
@@ -197,96 +198,10 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/mainMenu4"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="8dp"
-                android:clickable="true"
-                android:focusable="auto"
-                android:focusableInTouchMode="true"
-                app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/baseline_photo_library_24" />
-
-                    <TextView
-                        style="@style/font_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sour_gummy_expanded_extra_bold"
-                        android:includeFontPadding="true"
-                        android:text="@string/main_menu_4"
-                        android:textColor="?attr/colorOnBackground"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mainMenu5"
-                android:layout_width="wrap_content"
-                android:layout_height="175dp"
-                android:layout_row="2"
+                android:layout_height="150dp"
+                android:layout_row="3"
                 android:layout_rowWeight="1"
                 android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"
-                android:layout_margin="8dp"
-                android:clickable="true"
-                android:focusable="auto"
-                android:focusableInTouchMode="true"
-                app:cardBackgroundColor="?attr/colorAccent"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/baseline_event_note_24" />
-
-                    <TextView
-                        style="@style/font_bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sour_gummy_expanded_extra_bold"
-                        android:includeFontPadding="true"
-                        android:text="@string/main_menu_5"
-                        android:textColor="?attr/colorOnBackground"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/mainMenu6"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_row="2"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
                 android:layout_margin="8dp"
@@ -313,9 +228,9 @@
                         style="@style/font_bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/sour_gummy_extra_bold"
+                        android:fontFamily="@font/sour_gummy_expanded_extra_bold"
                         android:includeFontPadding="true"
-                        android:text="@string/main_menu_6"
+                        android:text="@string/main_menu_5"
                         android:textColor="?attr/colorOnBackground"
                         android:textStyle="bold" />
 

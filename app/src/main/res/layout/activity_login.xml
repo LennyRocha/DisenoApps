@@ -80,7 +80,7 @@
             android:drawableTintMode="multiply"
             android:ems="10"
             android:hint="@string/usuario"
-            android:inputType="text"
+            android:inputType="text|textEmailAddress"
             android:selectAllOnFocus="false"
             android:singleLine="false" />
 

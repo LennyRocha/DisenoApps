@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Patrouille Environnementale</string>
+    <string name="app_name_spaced">Patrouille Environnementale</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="inicioSes">CONNEXION</string>
+    <string name="usuario">Utilisateur</string>
+    <string name="contra">Mot de passe</string>
+    <string name="acceder">Accéder</string>
+    <string name="registrarme">S\'inscrire</string>
+    <string name="bienve">Bienvenue</string>
+
+    <string name="err_500">Quelque chose s\'est mal passé, réessayez</string>
+    <string name="error_login">Utilisateur et/ou mot de passe incorrect(s)</string>
+    <string name="error_name">Utilisateur non trouvé</string>
+    <string name="error_pass">Mot de passe incorrect</string>
+    <string name="error_confirm_pass">Les mots de passe ne correspondent pas</string>
+    <string name="empty_login">Remplissez d\'abord tous les champs</string>
+
+    <string name="item1">Accueil</string>
+    <string name="item2">Messages</string>
+    <string name="item3">Carte</string>
+    <string name="item4">Actualités</string>
+
+    <string name="itemTop1">Mon profil</string>
+    <string name="itemTop2">Paramètres</string>
+    <string name="itemTop3">Déconnexion</string>
+
+    <string name="nombre">Prénom</string>
+    <string name="apellido">Nom de famille</string>
+    <string name="correo">Courriel</string>
+    <string name="camFoto">Changer la photo</string>
+
+    <string name="miPer">Mon profil</string>
+
+    <string name="detallesReg">Résumé de l\'inscription</string>
+    <string name="confirmReg">Confirmer le mot de passe</string>
+    <string name="recordarReg">Rappelez-moi</string>
+    <string name="inicioReg">INSCRIVEZ-VOUS MAINTENANT !</string>
+
+    <string name="hola_hint">BIENVENUE NOM D\'UTILISATEUR</string>
+
+    <string name="main_menu_1">Nouveau rapport</string>
+    <string name="main_menu_2">Mes rapports</string>
+    <string name="main_menu_3">Règles environnementales</string>
+    <string name="main_menu_4">Preuves</string>
+    <string name="main_menu_5">Bulletin vert de l\'UTEZ</string>
+    <string name="main_menu_6">Éducation à l\'environnement</string>
+
+    <string name="noInternet">Pas de connexion Internet, réessayez !</string>
+    <string name="reintenta">Réessayer</string>
+
+    <string name="logut_pregunta">Voulez-vous partir ?</string>
+    <string name="logut_body">Vous êtes sur le point de vous déconnecter, \n Voulez-vous continuer ?</string>
+
+    <string name="put_pregunta">Confirmez les modifications !</string>
+    <string name="put_body">Voulez-vous mettre à jour vos informations ?</string>
+
+    <string name="no_wifi">Connexion Internet perdue !</string>
+    <string name="si_wifi">Connexion Internet rétablie !</string>
+
+    <string name="no_reports">Aucun rapport disponible !</string>
+
+    <string name="si">Oui</string>
+    <string name="no">Non</string>
+
+    <string name="settingsTitle">Paramètres</string>
+    <string name="temas">Apparence &amp; Thèmes</string>
+    <string name="temaClaro">Mode clair</string>
+    <string name="temaOscuro">Mode sombre</string>
+    <string name="lenguajes">Langues</string>
+    <string name="lenguajeEsp">Espagnol</string>
+    <string name="lenguajeEng">Anglais</string>
+    <string name="lenguajeFre">Français</string>
+
+    <string name="newPass">Changer mon mot de passe</string>
+    <string name="newPassText">Nouveau mot de passe</string>
+    <string name="guardar">Enregistrer</string>
+    <string name="cancelar">Annuler</string>
+    <string name="succesSave">Mot de passe mis à jour !</string>
+    <string name="preferences">Préférences</string>
+    <string name="ringtone">Définir la sonnerie de notification</string>
+
+    <string name="camaraPregunta">Nouvelle photo de profil</string>
+    <string name="cam">Caméra</string>
+    <string name="gal">Galerie</string>
+
+    <string name="no_nums">Les nombres ne sont pas acceptés</string>
+    <string name="exito_registro">Inscription réussie</string>
+    <string name="exito_put">Mise à jour réussie</string>
+    <string name="error_registro">Erreur lors de l\'inscription :</string>
+
+    <string name="mnu_reps">Mes rapports</string>
+    <string name="del_rep">Supprimer ce rapport ?</string>
+    <string name="del_exito">Rapport supprimé</string>
+    <string name="del_fallo">Rapport non supprimé</string>
+
+</resources>

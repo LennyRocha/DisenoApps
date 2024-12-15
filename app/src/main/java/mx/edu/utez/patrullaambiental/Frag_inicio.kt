@@ -36,18 +36,27 @@ class Frag_inicio : Fragment() {
         binding.mainMenu2.startAnimation(animation)
         binding.mainMenu3.startAnimation(animation)
         binding.mainMenu4.startAnimation(animation)
-        binding.mainMenu5.startAnimation(animation)
-        binding.mainMenu6.startAnimation(animation)
         binding.appbar.startAnimation(animation2)
         binding.txtBienvenido.startAnimation(apareceTexto)
+
+        binding.mainMenu1.setOnClickListener {
+            val intent = Intent(requireActivity(), RegistroReporte::class.java)
+            startActivity(intent)
+        }
+
+        binding.mainMenu2.setOnClickListener {
+            val intent = Intent(requireActivity(), MisReportes::class.java)
+            startActivity(intent)
+        }
+
+        binding.mainMenu4.setOnClickListener {
+            val intent = Intent(requireActivity(), BoletinView::class.java)
+            startActivity(intent)
+        }
 
         binding.mainMenu3.setOnClickListener {
             val intent = Intent(requireActivity(), DocumentView::class.java)
             startActivity(intent)
-            /*val url = "https://www.utez.edu.mx/wp-content/uploads/2024/09/REGLAMENTO_AMBIENTAL_UTEZ.pdf"
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(url)
-            startActivity(intent)*/
         }
 
         return binding.root
@@ -55,7 +64,7 @@ class Frag_inicio : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null  // Evitar memory leaks
+        _binding = null
     }
 }
 

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "mx.edu.utez.patrullaambiental"
-        minSdk = 27
+        minSdk = 31
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.maps)
     implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.volley)
+    implementation(libs.glide)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -9,9 +9,11 @@
     <string name="registrarme">Registrarme</string>
     <string name="bienve">Bienvenido</string>
 
+    <string name="err_500">Algo salió mal, intentalo nuevamente</string>
     <string name="error_login">El usuario y/o contraseña no son correctos</string>
     <string name="error_name">Usuario no encontrado</string>
     <string name="error_pass">Contraseña incorrecta</string>
+    <string name="error_confirm_pass">Las contraseñas no coinciden</string>
     <string name="empty_login">Rellena todos los campos primero</string>
 
     <string name="item1">Inicio</string>
@@ -34,9 +36,8 @@
     <string name="confirmReg">Confirmar contraseña</string>
     <string name="recordarReg">Recordarme</string>
     <string name="inicioReg">¡REGISTRATE!</string>
-    <string name="rolReg">Rol</string>
-    <string name="rol1">Administrador</string>
-    <string name="rol2">Ordinario</string>
+
+    <string name="hola_hint">BIENVENIDO USERNAME</string>
 
     <string name="main_menu_1">Nuevo Reporte</string>
     <string name="main_menu_2">Mis Reportes</string>
@@ -49,7 +50,16 @@
     <string name="reintenta">Reintentar</string>
 
     <string name="logut_pregunta">¿Cerrar sesión?</string>
-    <string name="logut_body">"Estas a punto de cerrar sesión, \n ¿Deseas continuar?"</string>
+    <string name="logut_body">Estas a punto de cerrar sesión, \n ¿Deseas continuar?</string>
+
+    <string name="put_pregunta">¡Confirmar cambios!</string>
+    <string name="put_body">¿Deseas actualizar tu información?</string>
+
+    <string name="no_wifi">¡Se ha perdido la conexión a internet!</string>
+    <string name="si_wifi">¡Se ha restaurado la conexión a internet!</string>
+
+    <string name="no_reports">¡No hay reportes disponibles!</string>
+
     <string name="si">Si</string>
     <string name="no">No</string>
 
@@ -70,10 +80,19 @@
     <string name="preferences">Preferencias</string>
     <string name="ringtone">Establecer tono de notificación</string>
 
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="camaraPregunta">Nueva foto de perfil</string>
+    <string name="cam">Camara</string>
+    <string name="gal">Galería</string>
+
+    <string name="no_nums">No se admiten números</string>
+    <string name="exito_registro">Registro exitoso</string>
+    <string name="exito_put">Actualización exitosa</string>
+    <string name="error_registro">Error al registrar:</string>
+
+    <string name="mnu_reps">Mis reportes</string>
+    <string name="del_rep">¿Eliminar este reporte?</string>
+    <string name="del_exito">Reporte eliminado</string>
+    <string name="del_fallo">Reporte no eliminado</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
