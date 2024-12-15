@@ -177,7 +177,7 @@ class RegistroReporte : AppCompatActivity(), LocationListener {
     }
 
     private fun registrarReporte(Reportito: JSONObject) {
-        val url = "http://192.168.0.13:8080/Usuario/RCrear"
+        val url = "http://192.168.0.66:8080/Usuario/RCrear"
         val request = JsonObjectRequest(
             Request.Method.POST,
             url,

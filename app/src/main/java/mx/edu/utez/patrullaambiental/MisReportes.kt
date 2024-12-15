@@ -45,7 +45,7 @@ class MisReportes : AppCompatActivity() {
 
     fun cargarReportes() {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.0.13:8080/Admin/Rtodos"
+        val url = "http://192.168.0.66:8080/Admin/Rtodos"
         val metodo = Request.Method.GET
 
         val listener = Response.Listener<JSONObject> { resultado ->
@@ -134,7 +134,7 @@ class MisReportes : AppCompatActivity() {
 
     fun deleteReport (id : Int){
         val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.1.67:8080/Admin/UEliminar/${id}"
+        val url = "http://192.168.0.66:8080/Admin/UEliminar/${id}"
         val metodo = Request.Method.DELETE
         val body  = null
 
