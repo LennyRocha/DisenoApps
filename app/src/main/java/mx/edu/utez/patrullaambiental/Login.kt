@@ -71,7 +71,7 @@ class Login : AppCompatActivity() {
     fun obtenerUsuario(correo : String, contra : String,  onResult: (Usuario?) -> Unit) {
         val queue = Volley.newRequestQueue(this)
 
-        val url = "http://192.168.1.67:8080/Admin/Login"
+        val url = "http://192.168.0.166:8080/Admin/Login"
 
         val metodo = Request.Method.POST
 
@@ -104,7 +104,7 @@ class Login : AppCompatActivity() {
                 onResult(usuario) // Devuelve el usuario al callback
             } catch (e: Exception) {
                 e.printStackTrace()
-                onResult(null) // Devuelve null si algo falla
+                Toast.makeText(this, "Revisa tus datos", Toast.LENGTH_SHORT).show()
             }
         }
 
