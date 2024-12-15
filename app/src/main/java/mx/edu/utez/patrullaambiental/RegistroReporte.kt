@@ -57,7 +57,7 @@ class RegistroReporte : AppCompatActivity(), LocationListener {
             val latitud = binding.txtLatitud.text.toString().toFloat()
             val usuarioId = userId
 
-            if (titulo.isNotEmpty() && descripcion.isNotEmpty()) {
+            if (titulo.isNotEmpty() && descripcion.isNotEmpty() && estado.isNotEmpty() && longitud != 0.0f && latitud != 0.0f && usuarioId != -1) {
                 val imagenBase64 = convertirImagenABase64(binding.imgReporte)
                 if (imagenBase64 != null) {
                     val reporte = JSONObject().apply {
@@ -126,8 +126,8 @@ class RegistroReporte : AppCompatActivity(), LocationListener {
         val longitude = location.longitude
 
         runOnUiThread {
-            binding.txtLatitud.text = "Latitud: $latitude"
-            binding.txtLongitud.text = "Longitud: $longitude"
+            binding.txtLatitud.text = "$latitude"
+            binding.txtLongitud.text = "$longitude"
         }
     }
 
