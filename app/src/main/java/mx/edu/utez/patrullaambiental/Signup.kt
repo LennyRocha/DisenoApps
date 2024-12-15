@@ -208,7 +208,7 @@ class Signup : AppCompatActivity() {
     fun registrarConVolley(bro: Usuario){
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://192.168.111.81:8080/Admin/UCrear"
+        val url = "http://192.168.1.67:8080/Admin/UCrear"
         val metodo = Request.Method.POST
         val body  = JSONObject()
         body.put(

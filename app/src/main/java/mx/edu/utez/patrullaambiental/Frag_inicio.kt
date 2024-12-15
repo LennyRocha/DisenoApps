@@ -52,6 +52,11 @@ class Frag_inicio : Fragment() {
             intent.data = Uri.parse(url)
             startActivity(intent)*/
         }
+        binding.mainMenu1.setOnClickListener {
+            val intent = Intent(requireActivity(), RegistroReporte::class.java)
+            startActivity(intent)
+        }
+
 
         return binding.root
     }
